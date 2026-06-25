@@ -177,7 +177,7 @@
     .section-head p { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.48; font-weight: 500; }
 
     /* SERVICES */
-    .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(208px, 1fr)); gap: 16px; }
     .service-card {
       position: relative; min-height: 300px; padding: 26px;
       background: var(--card); border: 1px solid var(--line);
@@ -279,9 +279,14 @@
       color: var(--ink); font-size: 15px; font-family: inherit; font-weight: 500; transition: border-color .2s ease;
     }
     form.lead-form input:focus, form.lead-form select:focus, form.lead-form textarea:focus { outline: none; border-color: var(--red); }
-    form.lead-form textarea { min-height: 96px; resize: vertical; }
+    form.lead-form textarea { min-height: 88px; resize: vertical; }
+    form.lead-form .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    form.lead-form .consent { display: flex; gap: 10px; align-items: flex-start; }
+    form.lead-form .consent input { width: 18px; height: 18px; margin-top: 1px; flex: 0 0 auto; accent-color: var(--red); }
+    form.lead-form .consent label { font-family: var(--font-body); text-transform: none; letter-spacing: 0; font-weight: 500; font-size: 12px; color: var(--muted); line-height: 1.5; }
     form.lead-form .btn { width: 100%; }
     .form-note { font-size: 12px; color: var(--muted); font-weight: 500; line-height: 1.5; }
+    @media (max-width: 560px) { form.lead-form .form-grid { grid-template-columns: 1fr; } }
 
     .float-actions { display: none; }
 
@@ -328,18 +333,14 @@
         <stop offset="1" stop-color="#070708"/>
       </linearGradient>
       <symbol id="msg-shield" viewBox="0 0 120 144">
-        <!-- shield body -->
         <path d="M60 4 L114 23 L114 80 C114 111 90 132 60 142 C30 132 6 111 6 80 L6 23 Z"
               fill="url(#msgSteel)" stroke="#e30613" stroke-width="4"/>
         <path d="M60 13 L106 29 L106 79 C106 106 85 124 60 133 C35 124 14 106 14 79 L14 29 Z"
               fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2"/>
-        <!-- red lightning bolt behind letters -->
         <polygon points="83,18 45,70 61,70 41,122 95,58 75,58 97,18" fill="#e30613"/>
-        <!-- MSG monogram -->
         <text x="60" y="78" text-anchor="middle" font-family="Oswald, 'Arial Narrow', Arial, sans-serif"
               font-weight="700" font-style="italic" font-size="42" fill="#ffffff"
               stroke="#0c0c0c" stroke-width="1.2" paint-order="stroke">MSG</text>
-        <!-- soccer ball -->
         <g transform="translate(60,112)">
           <circle r="13" fill="#fff" stroke="#0c0c0c" stroke-width="2"/>
           <polygon points="0,-7 6.7,-2.2 4.1,5.7 -4.1,5.7 -6.7,-2.2" fill="#0c0c0c"/>
@@ -426,6 +427,11 @@
             <h3>Айдентика события</h3>
             <p>Афиши, билеты, бейджи, наградная атрибутика и social-пакет в фирменном стиле турнира.</p>
           </article>
+          <article class="service-card">
+            <div class="service-number">05 / Venue</div>
+            <h3>Подбор площадки</h3>
+            <p>Поиск и бронирование стадионов, манежей и полей под формат, даты и бюджет — с учётом покрытия, инфраструктуры и логистики.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -478,7 +484,7 @@
           <p>Григорий продолжает судить матчи профессионального уровня — и тот же подход переносит в организацию турниров: дисциплина, регламент и чувство игры. Он лично отвечает за то, чтобы каждое событие проходило честно, чётко и по правилам.</p>
           <blockquote class="founder-quote">«Турнир — это не просто матчи. Это правила, которые работают, и игра, которая идёт под контролем от первого свистка до награждения.»</blockquote>
           <div class="founder-badge">
-            <img class="rfs-logo" src="assets/rfs-logo.png" alt="Логотип РФС" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <img class="rfs-logo" src="assets/rfs-logo.png" alt="Логотип РФС" onerror="if(!this.dataset.f){this.dataset.f='1';this.src='assets/rfs-logo.svg';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}" />
             <span class="rfs-ph">Лого<br>РФС</span>
             <div class="founder-badge-txt">
               <b>Действующий арбитр РФС</b>
@@ -587,16 +593,93 @@
         </div>
         <form class="lead-form" action="mailto:hello@mitinsport.group" method="post" enctype="text/plain" aria-label="Форма заявки">
           <div class="frow">
-            <label for="name">Имя</label>
+            <label for="name">Имя *</label>
             <input id="name" name="Имя" type="text" placeholder="Как к вам обращаться" required />
           </div>
-          <div class="frow">
-            <label for="phone">Телефон или мессенджер</label>
-            <input id="phone" name="Контакт" type="text" placeholder="+7… / @telegram" required />
+          <div class="form-grid">
+            <div class="frow">
+              <label for="phone">Телефон или мессенджер *</label>
+              <input id="phone" name="Контакт" type="text" placeholder="+7… / @telegram" required />
+            </div>
+            <div class="frow">
+              <label for="email">Email</label>
+              <input id="email" name="Email" type="email" placeholder="you@example.com" />
+            </div>
           </div>
           <div class="frow">
-            <label for="type">Тип мероприятия</label>
-            <select id="type" name="Тип мероприятия">
-              <option>Футбольный турнир</option>
-              <option>Корпоративный турнир / спартакиада</option>
-              <option>Теннисный турнир</
+            <label for="org">Организация / компания</label>
+            <input id="org" name="Организация" type="text" placeholder="Если заявка от организации" />
+          </div>
+          <div class="form-grid">
+            <div class="frow">
+              <label for="type">Тип мероприятия</label>
+              <select id="type" name="Тип мероприятия">
+                <option>Турнир</option>
+                <option>Лига / сезон</option>
+                <option>Корпоративный турнир / спартакиада</option>
+                <option>Судейское сопровождение</option>
+                <option>Другое</option>
+              </select>
+            </div>
+            <div class="frow">
+              <label for="sport">Вид спорта</label>
+              <select id="sport" name="Вид спорта">
+                <option>Футбол</option>
+                <option>Мини-футбол</option>
+                <option>Пляжный футбол</option>
+                <option>Теннис</option>
+                <option>Другое</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="frow">
+              <label for="city">Город / площадка</label>
+              <input id="city" name="Город" type="text" placeholder="Город или адрес площадки" />
+            </div>
+            <div class="frow">
+              <label for="dates">Желаемые даты</label>
+              <input id="dates" name="Даты" type="text" placeholder="Напр. октябрь 2026" />
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="frow">
+              <label for="teams">Команд / участников</label>
+              <input id="teams" name="Количество" type="text" placeholder="Напр. 8 команд" />
+            </div>
+            <div class="frow">
+              <label for="budget">Ориентир бюджета</label>
+              <input id="budget" name="Бюджет" type="text" placeholder="Необязательно" />
+            </div>
+          </div>
+          <div class="frow">
+            <label for="msg">Коротко о задаче</label>
+            <textarea id="msg" name="Задача" placeholder="Формат, цель, особые пожелания"></textarea>
+          </div>
+          <div class="consent">
+            <input id="consent" name="Согласие" type="checkbox" required />
+            <label for="consent">Я согласен(на) на обработку персональных данных и ознакомлен(а) с политикой конфиденциальности.</label>
+          </div>
+          <button class="btn btn-red" type="submit">Отправить заявку</button>
+          <p class="form-note">* Обязательные поля. Подключим отправку в Telegram/CRM при запуске сайта.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div style="display:flex;align-items:center;gap:12px">
+        <svg class="shield-sm" viewBox="0 0 120 144" aria-hidden="true"><use href="#msg-shield"/></svg>
+        <span>© Mitin Sport Group · Григорий Митин</span>
+      </div>
+      <div>Спортивные турниры · Судейство · Матч-дей события</div>
+    </div>
+  </footer>
+
+  <div class="float-actions">
+    <a class="fa-call" href="tel:+70000000000">Позвонить</a>
+    <a class="fa-write" href="#contact">Оставить заявку</a>
+  </div>
+</body>
+</html>
