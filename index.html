@@ -273,7 +273,7 @@
     }
     .messenger-link:hover { transform: translateY(-2px); border-color: var(--red); background: #faf9f7; }
     .messenger-link svg { width: 24px; height: 24px; display: block; }
-    .messenger-link.max svg { width: 32px; height: 20px; }
+    .messenger-link.max svg { width: 28px; height: 28px; }
     .sr-only {
       position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
       clip: rect(0,0,0,0); white-space: nowrap; border: 0;
@@ -379,7 +379,7 @@
         <div class="section-head">
           <div>
             <div class="kicker">Что мы делаем</div>
-            <h2>Турнир как система</h2>
+            <h2>Турнир <span class="accent-slash">как</span> система</h2>
           </div>
           <p>Берём на себя всю организацию события: формат и регламент, заявки команд, судейское сопровождение, матч Day операции и визуальную упаковку турнира.</p>
         </div>
@@ -396,7 +396,7 @@
           </article>
           <article class="service-card">
             <div class="service-number">03 / Matchday</div>
-            <h3>Матч Day операции</h3>
+            <h3>Матч <span class="accent-slash">Day</span> операции</h3>
             <p>Площадка, тайминг, персонал, бейджи, аккредитация, безопасность и спортивная атмосфера события.</p>
           </article>
           <article class="service-card">
@@ -419,19 +419,19 @@
         <div class="section-head">
           <div>
             <div class="kicker">Направления</div>
-            <h2>Виды спорта</h2>
+            <h2>Виды <span class="accent-slash">спорта</span></h2>
           </div>
           <p>Основа — футбол во всех форматах: классический, мини-футбол, пляжный, детский и корпоративный. Работаем и с другими видами спорта под запрос.</p>
         </div>
         <div class="sports">
           <div class="sport football">
-            <div class="pct">90%</div>
+            <div class="pct">90</div>
             <small>Основное направление</small>
             <h3>Футбол</h3>
             <p>Классический, мини-футбол, пляжный, детский, корпоративный. Турниры, лиги и кубки любого масштаба.</p>
           </div>
           <div class="sport tennis">
-            <div class="pct">10%</div>
+            <div class="pct">10</div>
             <small>Развиваем</small>
             <h3>Теннис</h3>
             <p>Турниры и любительские соревнования.</p>
@@ -482,7 +482,7 @@
         <div class="section-head">
           <div>
             <div class="kicker">Для кого</div>
-            <h2>С кем работаем</h2>
+            <h2>С <span class="accent-slash">кем</span> работаем</h2>
           </div>
           <p>Под каждый тип заказчика — свой формат, уровень отчётности и масштаб. От федеральных проектов до частного кубка.</p>
         </div>
@@ -501,7 +501,7 @@
         <div class="section-head">
           <div>
             <div class="kicker">Портфолио</div>
-            <h2>Спорт в деле</h2>
+            <h2>Спорт <span class="accent-slash">в</span> деле</h2>
           </div>
           <p>Кадры с турниров и матчей: судейство профессионального уровня, VAR, пляжный и детский футбол, организация на площадке.</p>
         </div>
@@ -541,7 +541,7 @@
         <div class="section-head">
           <div>
             <div class="kicker">Как это работает</div>
-            <h2>Чёткий матч-план</h2>
+            <h2>Чёткий <span class="accent-slash">матч Day</span> план</h2>
           </div>
           <p>Прозрачный процесс из четырёх этапов: вы всегда понимаете, что происходит и кто за что отвечает.</p>
         </div>
@@ -559,7 +559,7 @@
       <div class="contact-inner">
         <div>
           <div class="kicker">Заявка</div>
-          <h2>Готовы собрать турнир?</h2>
+          <h2>Готовы <span class="accent-slash">собрать</span> турнир?</h2>
           <p class="contact-lead">Оставьте заявку — обсудим формат, судейское сопровождение и смету. Ответим в течение рабочего дня.</p>
           <div class="contact-methods">
             <div class="cm"><span>☎</span><a href="tel:+79035212007">+7 903 521-20-07</a></div>
@@ -577,8 +577,16 @@
                 <span class="sr-only">WhatsApp</span>
               </a>
               <a class="messenger-link max" href="https://max.ru/mitinref" target="_blank" rel="noopener" aria-label="MAX">
-                <svg viewBox="0 0 68 36" aria-hidden="true">
-                  <text x="34" y="25" text-anchor="middle" fill="currentColor" font-family="Oswald, Arial, sans-serif" font-size="24" font-weight="700">MAX</text>
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="maxIconGradient" x1="6" y1="58" x2="58" y2="6" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-color="#41d4f4"/>
+                      <stop offset=".45" stop-color="#2f63ff"/>
+                      <stop offset="1" stop-color="#b035ee"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="4" y="4" width="56" height="56" rx="15" fill="url(#maxIconGradient)"/>
+                  <path fill="#fff" d="M32.5 15.5c-10.1 0-18 7.1-18 16.1 0 3.5 1.2 6.8 3.2 9.5l-1.1 7.4c-.1.8.7 1.3 1.4.9l6.5-3.7c2.4 1.2 5.2 1.9 8 1.9 10.1 0 18-7.1 18-16s-7.9-16.1-18-16.1Zm0 8.2c5.3 0 9.5 3.5 9.5 7.9s-4.2 7.9-9.5 7.9c-1.8 0-3.5-.4-4.9-1.2l-1.6-.8-2.3 1.3.4-2.6-1.1-1.5c-.8-1-1.2-2.1-1.2-3.1 0-4.4 4.2-7.9 10.7-7.9Z"/>
                 </svg>
                 <span class="sr-only">MAX</span>
               </a>
