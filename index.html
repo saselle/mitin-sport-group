@@ -43,16 +43,16 @@
     img { display: block; max-width: 100%; }
 
     /* ===== BRAND ELEMENTS ===== */
-    .brand-shield { width: 52px; height: 52px; flex: 0 0 auto; object-fit: contain; }
+    .brand-shield { width: 60px; height: 60px; flex: 0 0 auto; object-fit: contain; }
     .shield-sm { width: 32px; height: 32px; flex: 0 0 auto; object-fit: contain; }
     .wordmark { display: flex; flex-direction: column; line-height: .8; }
     .wordmark b {
-      font-family: var(--font-display); font-weight: 700; font-size: 21px;
+      font-family: var(--font-display); font-weight: 700; font-size: 24px;
       letter-spacing: .01em; transform: skewX(-7deg); text-transform: uppercase;
     }
     .wordmark i {
       align-self: flex-end; font-family: var(--font-display); font-weight: 600; font-style: normal;
-      font-size: 10px; letter-spacing: .34em; padding: 1px 7px 2px; margin-top: 3px;
+      font-size: 12px; letter-spacing: .34em; padding: 1px 8px 2px; margin-top: 4px;
       background: var(--red); color: #fff; transform: skewX(-7deg);
     }
     .emblem {
@@ -80,18 +80,19 @@
       border-bottom: 1px solid var(--line);
     }
     .nav {
-      max-width: var(--max); margin: 0 auto; padding: 14px 22px;
+      max-width: var(--max); margin: 0 auto; padding: 16px 22px;
       display: flex; align-items: center; justify-content: space-between; gap: 24px;
     }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: -.04em; text-transform: uppercase; }
+    .brand { display: flex; align-items: center; gap: 14px; font-weight: 900; letter-spacing: -.04em; text-transform: uppercase; }
     .mark {
       width: 42px; height: 42px; display: grid; place-items: center;
       background: var(--red); color: #fff;
       clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
       font-size: 14px; font-weight: 950;
     }
-    .nav-links { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: 15px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .nav-links a:hover { color: var(--ink); }
+    .site-header .btn { min-height: 55px; padding: 0 25px; font-size: 15px; }
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
@@ -435,7 +436,7 @@
     <section class="founder" id="founder">
       <div class="container" style="margin-bottom:36px">
         <div class="kicker">Основатель и лицо компании</div>
-        <h2 style="max-width:780px">Турниры под управлением действующего футбольного арбитра</h2>
+        <h2 style="max-width:1180px">Турниры под управлением действующего футбольного арбитра - всероссийской категории</h2>
       </div>
       <div class="founder-inner">
         <div class="founder-photo">
@@ -548,12 +549,12 @@
           <h2>Готовы собрать турнир?</h2>
           <p class="contact-lead">Оставьте заявку — обсудим формат, судейское сопровождение и смету. Ответим в течение рабочего дня.</p>
           <div class="contact-methods">
-            <div class="cm"><span>☎</span><a href="tel:+70000000000">+7 (000) 000-00-00</a></div>
-            <div class="cm"><span>✈</span><a href="https://t.me/" target="_blank" rel="noopener">Telegram</a> · <a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a></div>
-            <div class="cm"><span>@</span><a href="mailto:hello@mitinsport.group">hello@mitinsport.group</a></div>
+            <div class="cm"><span>☎</span><a href="tel:+79035212007">+7 903 521-20-07</a></div>
+            <div class="cm"><span>✈</span><a href="https://t.me/mitinref" target="_blank" rel="noopener">@mitinref</a></div>
+            <div class="cm"><span>@</span><a href="mailto:Grigmit@yandex.ru">Grigmit@yandex.ru</a></div>
           </div>
         </div>
-        <form class="lead-form" action="mailto:hello@mitinsport.group" method="post" enctype="text/plain" aria-label="Форма заявки">
+        <form class="lead-form" action="mailto:Grigmit@yandex.ru" method="post" enctype="text/plain" aria-label="Форма заявки">
           <div class="frow">
             <label for="name">Имя *</label>
             <input id="name" name="Имя" type="text" placeholder="Как к вам обращаться" required />
@@ -561,7 +562,7 @@
           <div class="form-grid">
             <div class="frow">
               <label for="phone">Телефон или мессенджер *</label>
-              <input id="phone" name="Контакт" type="text" placeholder="+7… / @telegram" required />
+              <input id="phone" name="Контакт" type="text" placeholder="+7 903 521-20-07 / @mitinref" required />
             </div>
             <div class="frow">
               <label for="email">Email</label>
@@ -640,7 +641,7 @@
   </footer>
 
   <div class="float-actions">
-    <a class="fa-call" href="tel:+70000000000">Позвонить</a>
+    <a class="fa-call" href="tel:+79035212007">Позвонить</a>
     <a class="fa-write" href="#contact">Оставить заявку</a>
   </div>
 </body>
