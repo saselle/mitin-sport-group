@@ -265,6 +265,19 @@
     .cm span { flex: 0 0 30px; width: 30px; height: 30px; display: grid; place-items: center; background: var(--red); color: #fff; border-radius: 50%; font-size: 14px; }
     .cm a { border-bottom: 2px solid rgba(227,6,19,.35); }
     .cm a:hover { border-color: var(--red); }
+    .messenger-row { gap: 12px; }
+    .messenger-link {
+      width: 46px; height: 46px; flex: 0 0 46px; display: grid; place-items: center;
+      border: 1px solid rgba(0,0,0,.18); border-bottom: 1px solid rgba(0,0,0,.18);
+      background: #fff; color: var(--ink); transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .messenger-link:hover { transform: translateY(-2px); border-color: var(--red); background: #faf9f7; }
+    .messenger-link svg { width: 24px; height: 24px; display: block; }
+    .messenger-link.max svg { width: 32px; height: 20px; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
 
     form.lead-form { background: #fff; border: 1px solid var(--line); padding: 34px; box-shadow: var(--shadow-soft); display: grid; gap: 16px; }
     form.lead-form .frow { display: grid; gap: 7px; }
@@ -445,7 +458,7 @@
         <div class="founder-body">
           <h2>Григорий Митин</h2>
           <p class="founder-role">Основатель Mitin Sport Group · действующий футбольный судья</p>
-          <p>Григорий продолжает судить матчи профессионального уровня — и тот же подход переносит в организацию турниров: дисциплина, регламент и чувство игры. Он лично отвечает за то, чтобы каждое событие проходило честно, чётко и по правилам.</p>
+          <p>Григорий Митин продолжает судить матчи профессионального уровня — и тот же подход переносит в организацию турниров: дисциплина, регламент и чувство игры. Он лично отвечает за то, чтобы каждое событие проходило честно, чётко и по правилам.</p>
           <blockquote class="founder-quote">«Турнир — это не просто матчи. Это правила, которые работают, и игра, которая идёт под контролем от первого свистка до награждения.»</blockquote>
           <div class="founder-badge">
             <img class="rfs-logo" src="assets/rfs-logo.svg" alt="Логотип РФС" />
@@ -550,7 +563,26 @@
           <p class="contact-lead">Оставьте заявку — обсудим формат, судейское сопровождение и смету. Ответим в течение рабочего дня.</p>
           <div class="contact-methods">
             <div class="cm"><span>☎</span><a href="tel:+79035212007">+7 903 521-20-07</a></div>
-            <div class="cm"><span>✈</span><a href="https://t.me/mitinref" target="_blank" rel="noopener">@mitinref</a></div>
+            <div class="cm messenger-row">
+              <a class="messenger-link telegram" href="https://t.me/mitinref" target="_blank" rel="noopener" aria-label="Telegram">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M21.7 4.2 18.4 20c-.2 1.1-.9 1.4-1.9.9l-5.1-3.8-2.5 2.4c-.3.3-.5.5-1 .5l.4-5.2 9.4-8.5c.4-.4-.1-.6-.6-.3L5.5 13.3.5 11.7c-1.1-.3-1.1-1.1.2-1.6L20.1 2.6c.9-.3 1.7.2 1.6 1.6Z"/>
+                </svg>
+                <span class="sr-only">Telegram</span>
+              </a>
+              <a class="messenger-link whatsapp" href="https://wa.me/79035212007" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M12 2.2a9.7 9.7 0 0 0-8.4 14.6l-1.1 4.1 4.2-1.1A9.7 9.7 0 1 0 12 2.2Zm0 17.5c-1.6 0-3.1-.5-4.4-1.3l-.3-.2-2.5.7.7-2.4-.2-.3a7.8 7.8 0 1 1 6.7 3.5Zm4.3-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 3 4.7 4.1.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .2-1.1-.1-.2-.2-.2-.4-.3Z"/>
+                </svg>
+                <span class="sr-only">WhatsApp</span>
+              </a>
+              <a class="messenger-link max" href="https://max.ru/mitinref" target="_blank" rel="noopener" aria-label="MAX">
+                <svg viewBox="0 0 68 36" aria-hidden="true">
+                  <text x="34" y="25" text-anchor="middle" fill="currentColor" font-family="Oswald, Arial, sans-serif" font-size="24" font-weight="700">MAX</text>
+                </svg>
+                <span class="sr-only">MAX</span>
+              </a>
+            </div>
             <div class="cm"><span>@</span><a href="mailto:Grigmit@yandex.ru">Grigmit@yandex.ru</a></div>
           </div>
         </div>
