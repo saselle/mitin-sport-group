@@ -43,8 +43,8 @@
     img { display: block; max-width: 100%; }
 
     /* ===== BRAND ELEMENTS ===== */
-    .brand-shield { width: 40px; height: 48px; flex: 0 0 auto; }
-    .shield-sm { width: 25px; height: 30px; flex: 0 0 auto; }
+    .brand-shield { width: 52px; height: 52px; flex: 0 0 auto; object-fit: contain; }
+    .shield-sm { width: 32px; height: 32px; flex: 0 0 auto; object-fit: contain; }
     .wordmark { display: flex; flex-direction: column; line-height: .8; }
     .wordmark b {
       font-family: var(--font-display); font-weight: 700; font-size: 21px;
@@ -217,8 +217,7 @@
     .founder-body p { color: var(--muted); font-size: 17px; line-height: 1.55; font-weight: 500; margin: 22px 0 0; }
     .founder-quote { margin: 30px 0 0; padding: 22px 24px; border-left: 4px solid var(--red); background: var(--paper); font-size: 19px; line-height: 1.4; font-weight: 800; font-style: italic; color: var(--ink); }
     .founder-badge { display: flex; align-items: center; gap: 14px; margin-top: 26px; padding: 13px 18px; border: 1px solid var(--line); border-left: 3px solid var(--red); background: var(--paper); }
-    .founder-badge .rfs-logo { width: 48px; height: 48px; object-fit: contain; flex: 0 0 auto; }
-    .founder-badge .rfs-ph { display: none; width: 48px; height: 48px; flex: 0 0 auto; align-items: center; justify-content: center; text-align: center; font-family: var(--font-ui); font-weight: 700; font-size: 10px; line-height: 1.05; color: var(--muted); border: 1px dashed rgba(0,0,0,.3); }
+    .founder-badge .rfs-logo { width: 58px; height: 58px; object-fit: contain; flex: 0 0 auto; }
     .founder-badge-txt b { display: block; font-family: var(--font-display); font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: .01em; }
     .founder-badge-txt span { display: block; margin-top: 4px; font-family: var(--font-ui); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
     .founder-creds { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
@@ -320,36 +319,10 @@
   </style>
 </head>
 <body>
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <linearGradient id="msgSteel" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#42454b"/>
-        <stop offset=".48" stop-color="#191a1d"/>
-        <stop offset="1" stop-color="#070708"/>
-      </linearGradient>
-      <symbol id="msg-shield" viewBox="0 0 120 144">
-        <path d="M60 4 L114 23 L114 80 C114 111 90 132 60 142 C30 132 6 111 6 80 L6 23 Z"
-              fill="url(#msgSteel)" stroke="#e30613" stroke-width="4"/>
-        <path d="M60 13 L106 29 L106 79 C106 106 85 124 60 133 C35 124 14 106 14 79 L14 29 Z"
-              fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2"/>
-        <polygon points="83,18 45,70 61,70 41,122 95,58 75,58 97,18" fill="#e30613"/>
-        <text x="60" y="78" text-anchor="middle" font-family="Oswald, 'Arial Narrow', Arial, sans-serif"
-              font-weight="700" font-style="italic" font-size="42" fill="#ffffff"
-              stroke="#0c0c0c" stroke-width="1.2" paint-order="stroke">MSG</text>
-        <g transform="translate(60,112)">
-          <circle r="13" fill="#fff" stroke="#0c0c0c" stroke-width="2"/>
-          <polygon points="0,-7 6.7,-2.2 4.1,5.7 -4.1,5.7 -6.7,-2.2" fill="#0c0c0c"/>
-          <path d="M0 -13 L0 -7 M12 -4 L6.7 -2.2 M8.5 11 L4.1 5.7 M-8.5 11 L-4.1 5.7 M-12 -4 L-6.7 -2.2"
-                stroke="#0c0c0c" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-        </g>
-      </symbol>
-    </defs>
-  </svg>
-
   <header class="site-header">
     <nav class="nav" aria-label="Главная навигация">
       <a class="brand" href="#top" aria-label="Mitin Sport Group">
-        <svg class="brand-shield" viewBox="0 0 120 144" aria-hidden="true"><use href="#msg-shield"/></svg>
+        <img class="brand-shield" src="assets/logo-msg.png" alt="" aria-hidden="true" />
         <span class="wordmark"><b>Mitin Sport</b><i>Group</i></span>
       </a>
       <div class="nav-links">
@@ -381,7 +354,7 @@
           <div class="frame">
             <img src="assets/hero-founder.jpg" alt="Григорий Митин, основатель Mitin Sport Group" />
           </div>
-          <div class="tag"><svg class="shield-sm" viewBox="0 0 120 144" aria-hidden="true"><use href="#msg-shield"/></svg> Григорий Митин · <b>основатель</b></div>
+          <div class="tag"><img class="shield-sm" src="assets/logo-msg.png" alt="" aria-hidden="true" /> Григорий Митин · <b>основатель</b></div>
         </div>
       </div>
     </section>
@@ -474,8 +447,7 @@
           <p>Григорий продолжает судить матчи профессионального уровня — и тот же подход переносит в организацию турниров: дисциплина, регламент и чувство игры. Он лично отвечает за то, чтобы каждое событие проходило честно, чётко и по правилам.</p>
           <blockquote class="founder-quote">«Турнир — это не просто матчи. Это правила, которые работают, и игра, которая идёт под контролем от первого свистка до награждения.»</blockquote>
           <div class="founder-badge">
-            <img class="rfs-logo" src="assets/rfs-logo.png" alt="Логотип РФС" onerror="if(!this.dataset.f){this.dataset.f='1';this.src='assets/rfs-logo.svg';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}" />
-            <span class="rfs-ph">Лого<br>РФС</span>
+            <img class="rfs-logo" src="assets/rfs-logo.svg" alt="Логотип РФС" />
             <div class="founder-badge-txt">
               <b>Действующий арбитр РФС</b>
               <span>Российский футбольный союз · судейские стандарты</span>
@@ -660,7 +632,7 @@
   <footer>
     <div class="footer-inner">
       <div style="display:flex;align-items:center;gap:12px">
-        <svg class="shield-sm" viewBox="0 0 120 144" aria-hidden="true"><use href="#msg-shield"/></svg>
+        <img class="shield-sm" src="assets/logo-msg.png" alt="" aria-hidden="true" />
         <span>© Mitin Sport Group · Григорий Митин</span>
       </div>
       <div>Спортивные турниры · Судейство · Матч-дей события</div>
