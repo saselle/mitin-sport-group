@@ -332,13 +332,13 @@
 
     /* SPORTS */
     .sports { display: grid; grid-template-columns: 1.35fr repeat(4, 1fr); gap: 16px; }
-    .sport { position: relative; min-height: 220px; padding: 26px; border: 1px solid var(--line); overflow: hidden; display: grid; align-content: end; gap: 8px; background: var(--card); }
+    .sport { position: relative; min-height: 220px; padding: 26px; border: 1px solid var(--line); overflow: hidden; display: grid; align-content: start; gap: 14px; background: var(--card); }
     .sport.football { background: linear-gradient(150deg, var(--red), var(--red-dark)); color: #fff; border-color: transparent; }
     .sport.football::after { content: ""; position: absolute; top: -25%; right: 22%; width: 12px; height: 150%; background: rgba(255,255,255,.22); transform: rotate(24deg); }
     .sport.football::before { content: ""; position: absolute; top: -25%; right: 27%; width: 5px; height: 150%; background: rgba(255,255,255,.16); transform: rotate(24deg); }
-    .sport small { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 900; opacity: .7; }
+    .sport small { min-height: 30px; display: flex; align-items: flex-start; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 900; opacity: .7; }
     .sport.football small { opacity: .85; }
-    .sport h3 { margin: 0; font-size: 30px; line-height: .95; letter-spacing: -.05em; text-transform: uppercase; }
+    .sport h3 { margin: 0; min-height: 58px; font-size: 30px; line-height: .95; letter-spacing: -.05em; text-transform: uppercase; }
     .sport p { margin: 0; color: var(--muted); font-weight: 500; line-height: 1.4; font-size: 15px; }
     .sport.football p { color: rgba(255,255,255,.92); }
 
