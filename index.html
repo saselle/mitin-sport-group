@@ -228,6 +228,41 @@
     }
     .tech-item p { margin: 0; color: var(--muted); line-height: 1.45; font-weight: 500; font-size: 15px; }
 
+    /* MEDIA */
+    .media-panel { display: grid; grid-template-columns: .92fr 1.08fr; gap: 16px; }
+    .media-main {
+      position: relative; min-height: 340px; padding: 34px; overflow: hidden;
+      background: linear-gradient(150deg, var(--red), var(--red-dark)); color: #fff;
+      display: grid; align-content: end;
+    }
+    .media-main::before {
+      content: ""; position: absolute; top: -22%; right: 22%; width: 14px; height: 150%;
+      background: rgba(255,255,255,.24); transform: rotate(24deg);
+    }
+    .media-main::after {
+      content: ""; position: absolute; top: -20%; right: 29%; width: 5px; height: 140%;
+      background: rgba(255,255,255,.18); transform: rotate(24deg);
+    }
+    .media-main small, .media-card small {
+      font-family: var(--font-ui); font-size: 12px; font-weight: 950;
+      letter-spacing: .14em; text-transform: uppercase;
+    }
+    .media-main small { color: rgba(255,255,255,.82); }
+    .media-main h3 {
+      position: relative; z-index: 1; margin: 22px 0 16px;
+      font-family: var(--font-display); font-size: clamp(40px, 5.4vw, 74px);
+      line-height: .88; letter-spacing: -.025em; text-transform: uppercase;
+    }
+    .media-main p { position: relative; z-index: 1; margin: 0; color: rgba(255,255,255,.88); font-size: 18px; line-height: 1.45; font-weight: 600; }
+    .media-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .media-card { min-height: 162px; padding: 28px; border: 1px solid var(--line); background: var(--card); }
+    .media-card small { color: var(--red); }
+    .media-card h4 {
+      margin: 26px 0 10px; font-family: var(--font-display); font-size: 24px;
+      line-height: .98; letter-spacing: -.04em; text-transform: uppercase;
+    }
+    .media-card p { margin: 0; color: var(--muted); line-height: 1.45; font-weight: 500; font-size: 15px; }
+
     /* SPORTS */
     .sports { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; }
     .sport { position: relative; min-height: 220px; padding: 26px; border: 1px solid var(--line); overflow: hidden; display: grid; align-content: end; gap: 8px; background: var(--card); }
@@ -342,6 +377,7 @@
       .services { grid-template-columns: 1fr 1fr; }
       .tech-panel { grid-template-columns: 1fr; }
       .tech-grid { border-left: 0; border-top: 1px solid var(--line); }
+      .media-panel { grid-template-columns: 1fr; }
       .audience { grid-template-columns: 1fr 1fr; }
       .process-grid { grid-template-columns: 1fr 1fr; }
       .cases { grid-template-columns: repeat(2, 1fr); }
@@ -366,8 +402,9 @@
       .hero { padding-top: 104px; }
       .hero-actions { flex-direction: column; }
       .hero-actions .btn { width: 100%; }
-      .services, .tech-grid, .audience, .process-grid, .cases { grid-template-columns: 1fr; }
+      .services, .tech-grid, .media-grid, .audience, .process-grid, .cases { grid-template-columns: 1fr; }
       .tech-hero { min-height: 320px; padding: 26px; }
+      .media-main { min-height: 320px; padding: 26px; }
       .tech-item { border-right: 0; }
       .tech-item:nth-last-child(2) { border-bottom: 1px solid var(--line); }
       .case-1 { grid-column: span 1; }
@@ -500,8 +537,50 @@
       </div>
     </section>
 
+    <!-- MEDIA -->
+    <section id="media">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Медиа сопровождение</div>
+            <h2>Трансляции и <span class="accent-slash">контент</span> матча</h2>
+          </div>
+          <p>Делаем турнир видимым для зрителей, участников и партнёров: организуем прямые эфиры, фото- и видеосъёмку, работу комментаторов и готовые материалы после игры.</p>
+        </div>
+        <div class="media-panel">
+          <div class="media-main">
+            <small>Broadcast · Photo · Video</small>
+            <h3>Матч в эфире</h3>
+            <p>Собираем медиа-команду под формат события: от одной камеры и фотоотчёта до полноценной трансляции с комментатором.</p>
+          </div>
+          <div class="media-grid">
+            <article class="media-card">
+              <small>01 / Live</small>
+              <h4>Онлайн-трансляции</h4>
+              <p>Организация прямого эфира матча или турнира, подготовка площадки, картинки, графики и технической команды.</p>
+            </article>
+            <article class="media-card">
+              <small>02 / Photo</small>
+              <h4>Фотосъёмка</h4>
+              <p>Репортажные кадры игры, эмоций, награждения, партнёрских зон и ключевых моментов события.</p>
+            </article>
+            <article class="media-card">
+              <small>03 / Video</small>
+              <h4>Видеосъёмка</h4>
+              <p>Съёмка матчей, интервью, коротких роликов, хайлайтов и итогового видео для соцсетей и презентаций.</p>
+            </article>
+            <article class="media-card">
+              <small>04 / Voice</small>
+              <h4>Комментаторы</h4>
+              <p>Подбираем ведущих и комментаторов, которые держат темп эфира, объясняют игру и усиливают атмосферу турнира.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- SPORTS -->
-    <section id="sports">
+    <section id="sports" class="alt">
       <div class="container">
         <div class="section-head">
           <div>
