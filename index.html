@@ -283,7 +283,7 @@
     .media-card p { margin: 0; color: var(--muted); line-height: 1.45; font-weight: 500; font-size: 15px; }
 
     /* SPORTS */
-    .sports { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; }
+    .sports { display: grid; grid-template-columns: 1.35fr repeat(4, 1fr); gap: 16px; }
     .sport { position: relative; min-height: 220px; padding: 26px; border: 1px solid var(--line); overflow: hidden; display: grid; align-content: end; gap: 8px; background: var(--card); }
     .sport.football { background: linear-gradient(150deg, var(--red), var(--red-dark)); color: #fff; border-color: transparent; }
     .sport.football::after { content: ""; position: absolute; top: -25%; right: 22%; width: 12px; height: 150%; background: rgba(255,255,255,.22); transform: rotate(24deg); }
@@ -404,6 +404,8 @@
       .tech-panel { grid-template-columns: 1fr; }
       .tech-grid { border-left: 0; border-top: 1px solid var(--line); }
       .media-panel { grid-template-columns: 1fr; }
+      .sports { grid-template-columns: repeat(2, 1fr); }
+      .sport.football { grid-column: span 2; }
       .audience { grid-template-columns: 1fr 1fr; }
       .process-grid { grid-template-columns: 1fr 1fr; }
       .cases { grid-template-columns: repeat(2, 1fr); }
@@ -415,6 +417,7 @@
     }
     @media (max-width: 920px) {
       .hero-inner, .section-head, .sports, .founder-inner, .contact-inner { grid-template-columns: 1fr; }
+      .sport.football { grid-column: auto; }
       .hero-photo { order: -1; margin: 0 0 8px; }
       .founder-photo { min-height: 380px; }
       section { padding: 68px 18px; }
@@ -624,7 +627,7 @@
             <div class="kicker">Направления</div>
             <h2>Виды <span class="accent-slash">спорта</span></h2>
           </div>
-          <p>Основа — футбол во всех форматах: классический, мини-футбол, пляжный, детский и корпоративный. Работаем и с другими видами спорта под запрос.</p>
+          <p>Организуем турниры по футболу, теннису, паделу, настольному теннису, волейболу, баскетболу и другим спортивным форматам под задачу события.</p>
         </div>
         <div class="sports">
           <div class="sport football">
@@ -633,14 +636,24 @@
             <p>Классический, мини-футбол, пляжный, детский, корпоративный. Турниры, лиги и кубки любого масштаба.</p>
           </div>
           <div class="sport tennis">
-            <small>Развиваем</small>
-            <h3>Теннис</h3>
-            <p>Турниры и любительские соревнования.</p>
+            <small>Ракеточные виды</small>
+            <h3>Теннис и падел</h3>
+            <p>Большой теннис, падел, парные форматы, клубные и корпоративные турниры.</p>
+          </div>
+          <div class="sport table-tennis">
+            <small>Динамичный формат</small>
+            <h3>Настольный теннис</h3>
+            <p>Быстрые сетки, рейтинговые группы, командные зачёты и финальные стадии.</p>
+          </div>
+          <div class="sport volleyball">
+            <small>Командные виды</small>
+            <h3>Волейбол</h3>
+            <p>Классический и пляжный волейбол, микс-форматы и корпоративные турниры.</p>
           </div>
           <div class="sport other">
             <small>Под запрос</small>
             <h3>Другие виды</h3>
-            <p>Подберём формат и организацию под вашу задачу.</p>
+            <p>Баскетбол, бадминтон, фитнес-соревнования, спартакиады и спортивные фестивали.</p>
           </div>
         </div>
       </div>
