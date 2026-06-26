@@ -169,26 +169,26 @@
     .contact::before {
       content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background-repeat: no-repeat; background-size: cover; background-position: center;
-      opacity: .08; filter: grayscale(1);
-      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16%, #000 78%, transparent 100%);
-      mask-image: linear-gradient(90deg, transparent 0, #000 16%, #000 78%, transparent 100%);
+      opacity: .26; filter: grayscale(1);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 90%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 90%, transparent 100%);
     }
-    #services::before { background-image: linear-gradient(90deg, rgba(255,255,255,.95), rgba(255,255,255,.54)), url("assets/case-training.jpg"); background-position: right center; }
-    #technology::before { background-image: linear-gradient(90deg, rgba(246,244,239,.96), rgba(246,244,239,.56)), url("assets/case-var.jpg"); background-position: right center; }
-    #media::before { background-image: linear-gradient(90deg, rgba(255,255,255,.95), rgba(255,255,255,.52)), url("assets/case-night.jpg"); background-position: center; }
-    #sports::before { background-image: linear-gradient(90deg, rgba(246,244,239,.96), rgba(246,244,239,.54)), url("assets/case-beach.jpg"); background-position: right center; }
-    #founder::before { background-image: linear-gradient(90deg, rgba(255,255,255,.96), rgba(255,255,255,.5)), url("assets/founder-briefing.jpg"); background-position: center 28%; opacity: .07; }
-    #audience::before { background-image: linear-gradient(90deg, rgba(246,244,239,.96), rgba(246,244,239,.52)), url("assets/case-award.jpg"); background-position: center; }
-    #portfolio::before { background-image: linear-gradient(90deg, rgba(255,255,255,.94), rgba(255,255,255,.5)), url("assets/case-tunnel.jpg"); background-position: center; opacity: .06; }
-    #process::before { background-image: linear-gradient(90deg, rgba(246,244,239,.96), rgba(246,244,239,.52)), url("assets/case-training.jpg"); background-position: right center; }
-    .contact::before { background-image: linear-gradient(90deg, rgba(12,12,12,.95), rgba(12,12,12,.62)), url("assets/case-night.jpg"); opacity: .12; }
+    #services::before { background-image: linear-gradient(90deg, rgba(255,255,255,.86), rgba(255,255,255,.22)), url("assets/case-training.jpg"); background-position: right center; }
+    #technology::before { background-image: linear-gradient(90deg, rgba(246,244,239,.88), rgba(246,244,239,.22)), url("assets/case-var.jpg"); background-position: right center; }
+    #media::before { background-image: linear-gradient(90deg, rgba(255,255,255,.86), rgba(255,255,255,.2)), url("assets/case-night.jpg"); background-position: center; }
+    #sports::before { background-image: linear-gradient(90deg, rgba(246,244,239,.88), rgba(246,244,239,.22)), url("assets/case-beach.jpg"); background-position: right center; }
+    #founder::before { background-image: linear-gradient(90deg, rgba(255,255,255,.88), rgba(255,255,255,.24)), url("assets/founder-briefing.jpg"); background-position: center 28%; opacity: .22; }
+    #audience::before { background-image: linear-gradient(90deg, rgba(246,244,239,.88), rgba(246,244,239,.22)), url("assets/case-award.jpg"); background-position: center; }
+    #portfolio::before { background-image: linear-gradient(90deg, rgba(255,255,255,.86), rgba(255,255,255,.2)), url("assets/case-tunnel.jpg"); background-position: center; opacity: .2; }
+    #process::before { background-image: linear-gradient(90deg, rgba(246,244,239,.88), rgba(246,244,239,.22)), url("assets/case-training.jpg"); background-position: right center; }
+    .contact::before { background-image: linear-gradient(90deg, rgba(12,12,12,.9), rgba(12,12,12,.4)), url("assets/case-night.jpg"); opacity: .22; }
 
     .section-head { display: grid; grid-template-columns: .8fr 1fr; gap: 46px; align-items: end; margin-bottom: 44px; }
     .kicker { font-family: var(--font-ui); color: var(--red); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; }
     h2 { margin: 0; font-family: var(--font-display); font-size: clamp(38px, 5.8vw, 74px); line-height: .94; letter-spacing: -.005em; text-transform: uppercase; font-weight: 700; }
     h3, .service-card h3, .sport h3, .aud h3, .step h3, .case .label b, .wordmark b { font-family: var(--font-display); font-weight: 700; }
     .nav-links, .btn, .service-number, .eyebrow, .step small, .sport small, .aud .num,
-    .case .label small, .cred, form.lead-form label, .form-note { font-family: var(--font-ui); }
+    .case .label small, form.lead-form label, .form-note { font-family: var(--font-ui); }
     .btn { font-weight: 600; }
     .section-head p { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.48; font-weight: 500; }
 
@@ -312,19 +312,17 @@
     .founder-badge .rfs-logo { width: 58px; height: 58px; object-fit: contain; flex: 0 0 auto; }
     .founder-badge-txt b { display: block; font-family: var(--font-display); font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: .01em; }
     .founder-badge-txt span { display: block; margin-top: 4px; font-family: var(--font-ui); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
-    .founder-creds { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-    .cred { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 9px 14px; border: 1px solid var(--line); color: var(--ink); }
     .founder-tags {
-      max-width: var(--max); margin: 18px auto 0; display: flex; flex-wrap: wrap; gap: 10px;
-      padding: 20px 0 0;
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 18px;
     }
     .founder-tags span {
-      font-family: var(--font-ui); font-size: 12px; font-weight: 900; letter-spacing: .08em;
-      text-transform: uppercase; padding: 10px 14px; border: 1px solid rgba(0,0,0,.16);
-      background: rgba(255,255,255,.78); color: var(--ink);
+      min-height: 38px; display: flex; align-items: center;
+      font-family: var(--font-ui); font-size: 11px; font-weight: 900; letter-spacing: .07em;
+      text-transform: uppercase; padding: 9px 11px; border: 1px solid var(--line);
+      background: #fff; color: var(--ink);
     }
-    .founder-tags span:nth-child(3n+1) { background: var(--ink); color: #fff; border-color: var(--ink); }
-    .founder-tags span:nth-child(3n+2) { color: var(--red); }
+    .founder-tags span.is-dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .founder-tags span.is-red { color: var(--red); }
 
     /* AUDIENCE */
     .audience { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
@@ -438,7 +436,7 @@
       .tech-item { border-right: 0; }
       .tech-item:nth-last-child(2) { border-bottom: 1px solid var(--line); }
       .case-1 { grid-column: span 1; }
-      .founder-tags { padding-top: 8px; }
+      .founder-tags { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .brand span:last-child { display: none; }
       .founder-body, form.lead-form { padding: 26px; }
     }
@@ -672,26 +670,18 @@
               <span>Российский футбольный союз · судейские стандарты</span>
             </div>
           </div>
-          <div class="founder-creds">
-            <span class="cred">VAR</span>
-            <span class="cred">Пляжный футбол</span>
-            <span class="cred">Детский футбол</span>
+          <div class="founder-tags" aria-label="Компетенции Mitin Sport Group">
+            <span class="is-dark">Судейство</span>
+            <span class="is-red">VAR протокол</span>
+            <span>Матч Day</span>
+            <span>Регламент</span>
+            <span class="is-red">Медиа</span>
+            <span>Трансляции</span>
+            <span>Фото и видео</span>
+            <span class="is-dark">Комментаторы</span>
+            <span>Площадки</span>
           </div>
         </div>
-      </div>
-      <div class="founder-tags" aria-label="Компетенции Mitin Sport Group">
-        <span>Судейство</span>
-        <span>VAR протокол</span>
-        <span>Матч Day</span>
-        <span>Регламент</span>
-        <span>Медиа сопровождение</span>
-        <span>Трансляции</span>
-        <span>Фото и видео</span>
-        <span>Комментаторы</span>
-        <span>Пляжный футбол</span>
-        <span>Детский футбол</span>
-        <span>Награждение</span>
-        <span>Площадки</span>
       </div>
     </section>
 
