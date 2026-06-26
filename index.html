@@ -294,6 +294,41 @@
       line-height: .98; letter-spacing: -.04em; text-transform: uppercase;
     }
     .media-card p { margin: 0; color: var(--muted); line-height: 1.45; font-weight: 500; font-size: 15px; }
+    .tech-item, .media-card {
+      position: relative; overflow: hidden; cursor: pointer;
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, background-color .22s ease;
+    }
+    .tech-item::before, .media-card::before {
+      content: ""; position: absolute; right: -58px; bottom: -64px;
+      width: 170px; height: 170px; background: var(--red);
+      clip-path: polygon(20% 0, 100% 0, 80% 100%, 0 100%); opacity: 0;
+      transition: opacity .22s ease, transform .22s ease;
+    }
+    .tech-item::after, .media-card::after {
+      content: "+"; position: absolute; right: 22px; top: 22px;
+      width: 30px; height: 30px; border: 1px solid rgba(0,0,0,.14);
+      display: grid; place-items: center; color: var(--ink);
+      font-family: var(--font-ui); font-size: 18px; font-weight: 900; line-height: 1;
+      background: rgba(255,255,255,.78); transition: transform .22s ease, color .22s ease, border-color .22s ease;
+    }
+    .tech-item > *, .media-card > * { position: relative; z-index: 1; }
+    .tech-item:hover, .media-card:hover,
+    .tech-item:focus-visible, .media-card:focus-visible,
+    .tech-item.is-open, .media-card.is-open {
+      transform: translateY(-6px); border-color: var(--red); box-shadow: var(--shadow-soft);
+    }
+    .tech-item:hover::before, .media-card:hover::before,
+    .tech-item.is-open::before, .media-card.is-open::before { opacity: .1; transform: translate(-6px, -4px); }
+    .tech-item.is-open::after, .media-card.is-open::after {
+      content: "−"; color: var(--red); border-color: rgba(230,0,18,.35); transform: rotate(180deg);
+    }
+    .dynamic-card-ready .tech-item p, .dynamic-card-ready .media-card p {
+      max-height: 0; opacity: 0; overflow: hidden; transform: translateY(-4px);
+      transition: max-height .28s ease, opacity .2s ease, transform .2s ease, margin-top .2s ease;
+    }
+    .dynamic-card-ready .tech-item.is-open p, .dynamic-card-ready .media-card.is-open p {
+      max-height: 260px; opacity: 1; transform: translateY(0);
+    }
 
     /* SPORTS */
     .sports { display: grid; grid-template-columns: 1.35fr repeat(4, 1fr); gap: 16px; }
@@ -936,6 +971,42 @@
     <a class="fa-write" href="#contact">Оставить заявку</a>
   </div>
   <script>
+    (() => {
+      const groups = ['.tech-grid', '.media-grid'];
+      groups.forEach((selector) => {
+        const group = document.querySelector(selector);
+        if (!group) return;
+
+        const cards = [...group.querySelectorAll('.tech-item, .media-card')];
+        group.classList.add('dynamic-card-ready');
+        cards.forEach((card, index) => {
+          card.tabIndex = 0;
+          card.setAttribute('role', 'button');
+          card.setAttribute('aria-expanded', index === 0 ? 'true' : 'false');
+          if (index === 0) card.classList.add('is-open');
+
+          const toggle = () => {
+            const isOpen = card.classList.contains('is-open');
+            cards.forEach((item) => {
+              item.classList.remove('is-open');
+              item.setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+              card.classList.add('is-open');
+              card.setAttribute('aria-expanded', 'true');
+            }
+          };
+
+          card.addEventListener('click', toggle);
+          card.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            toggle();
+          });
+        });
+      });
+    })();
+
     (() => {
       const form = document.querySelector('.lead-form');
       if (!form) return;
