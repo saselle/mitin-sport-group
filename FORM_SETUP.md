@@ -29,4 +29,4 @@
 data-endpoint="https://script.google.com/macros/s/.../exec"
 ```
 
-После этого заявка будет отправляться на `Grigmit@yandex.ru` и дублироваться в Telegram.
+После этого заявка будет отправляться на `grigmitin@yandex.ru` и дублироваться в Telegram.

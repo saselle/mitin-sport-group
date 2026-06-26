@@ -1,4 +1,4 @@
-const EMAIL_TO = 'Grigmit@yandex.ru';
+const EMAIL_TO = 'grigmitin@yandex.ru';
 const EMAIL_SUBJECT = 'Заявка с сайта Mitin Sport Group';
 
 function doPost(e) {
