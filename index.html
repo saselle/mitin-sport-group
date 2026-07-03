@@ -43,18 +43,8 @@
     img { display: block; max-width: 100%; }
 
     /* ===== BRAND ELEMENTS ===== */
-    .brand-shield { width: 60px; height: 60px; flex: 0 0 auto; object-fit: contain; }
-    .shield-sm { width: 32px; height: 32px; flex: 0 0 auto; object-fit: contain; }
-    .wordmark { display: flex; flex-direction: column; line-height: .8; }
-    .wordmark b {
-      font-family: var(--font-display); font-weight: 700; font-size: 24px;
-      letter-spacing: .01em; transform: skewX(-7deg); text-transform: uppercase;
-    }
-    .wordmark i {
-      align-self: flex-end; font-family: var(--font-display); font-weight: 600; font-style: normal;
-      font-size: 12px; letter-spacing: .34em; padding: 1px 8px 2px; margin-top: 4px;
-      background: var(--red); color: #fff; transform: skewX(-7deg);
-    }
+    .brand-shield { height: 40px; width: auto; flex: 0 0 auto; object-fit: contain; }
+    .shield-sm { height: 22px; width: auto; flex: 0 0 auto; object-fit: contain; }
     .emblem {
       position: relative; width: 42px; height: 46px; flex: 0 0 auto;
       background: #0c0c0c; display: grid; place-items: center; overflow: hidden;
@@ -137,7 +127,7 @@
     }
     .hero-inner {
       position: relative; z-index: 2; max-width: var(--max); margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 54px; align-items: start;
+      display: grid; grid-template-columns: 1fr; gap: 54px; align-items: start;
     }
     .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; color: var(--muted); font-size: 12px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
     .eyebrow::before { content: ""; width: 46px; height: 3px; background: var(--red); }
@@ -145,33 +135,6 @@
     .accent-slash { color: var(--red); }
     .lead { max-width: 540px; margin: 26px 0 0; font-size: clamp(17px, 1.9vw, 22px); line-height: 1.4; color: var(--muted); font-weight: 600; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
-
-    /* HERO PHOTO */
-    .hero-photo { position: relative; margin-top: 38px; }
-    .hero-photo .frame {
-      position: relative; z-index: 2; overflow: hidden;
-      border: 1px solid var(--line); box-shadow: var(--shadow);
-      aspect-ratio: 4 / 3; background: #eee;
-    }
-    .hero-photo .frame img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 20%; }
-    .hero-photo::before {
-      content: ""; position: absolute; z-index: 1; right: -22px; top: -22px;
-      width: 62%; height: 78%; background: var(--red);
-      clip-path: polygon(16% 0, 100% 0, 100% 100%, 0 100%);
-    }
-    .hero-photo::after {
-      content: ""; position: absolute; z-index: 1; left: -20px; bottom: -20px;
-      width: 130px; height: 130px; border: 3px solid var(--ink);
-    }
-    .hero-photo .tag {
-      position: absolute; z-index: 3; left: 0; bottom: 18px;
-      background: var(--ink); color: #fff; padding: 9px 16px 9px 10px;
-      font-family: var(--font-ui); font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-      display: flex; align-items: center; gap: 9px;
-    }
-    .hero-photo .tag b { color: #ff4d57; }
-    .hero-photo .tag .emblem { background: var(--red); }
-    .hero-photo .tag .emblem::before { background: #0c0c0c; opacity: .4; }
 
     section { position: relative; overflow: hidden; scroll-margin-top: 92px; padding: 92px 22px; }
     .container, .founder-inner, .contact-inner { position: relative; z-index: 1; }
@@ -199,7 +162,7 @@
     .section-head { display: grid; grid-template-columns: .8fr 1fr; gap: 46px; align-items: end; margin-bottom: 44px; }
     .kicker { font-family: var(--font-ui); color: var(--red); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; }
     h2 { margin: 0; font-family: var(--font-display); font-size: clamp(38px, 5.8vw, 74px); line-height: .94; letter-spacing: -.005em; text-transform: uppercase; font-weight: 700; }
-    h3, .service-card h3, .sport h3, .aud h3, .step h3, .case .label b, .wordmark b { font-family: var(--font-display); font-weight: 700; }
+    h3, .service-card h3, .sport h3, .aud h3, .step h3, .case .label b { font-family: var(--font-display); font-weight: 700; }
     .nav-links, .btn, .service-number, .eyebrow, .step small, .sport small, .aud .num,
     .case .label small, form.lead-form label, .form-note { font-family: var(--font-ui); }
     .btn { font-weight: 600; }
@@ -388,13 +351,48 @@
     .case .label small { display: block; color: #ff4d57; font-size: 11px; font-weight: 950; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 5px; }
     .case .label b { display: block; font-size: 18px; line-height: 1.05; letter-spacing: -.03em; text-transform: uppercase; }
     .case .label span { display: block; margin-top: 5px; font-size: 12px; color: rgba(255,255,255,.8); font-weight: 600; }
-    .case-1 { grid-column: span 3; grid-row: span 2; }
-    .case-2 { grid-column: span 3; }
-    .case-3 { grid-column: span 3; }
+    .case { cursor: pointer; }
+    .case:focus-visible { outline: 3px solid var(--red); outline-offset: -3px; }
+    .case .gallery-hint {
+      position: absolute; z-index: 2; top: 14px; right: 14px;
+      display: flex; align-items: center; gap: 6px; padding: 6px 10px;
+      background: rgba(12,12,12,.55); color: #fff; backdrop-filter: blur(4px);
+      font-family: var(--font-ui); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    }
+    .case-1 { grid-column: span 6; grid-row: span 2; }
+    .case-2 { grid-column: span 2; }
+    .case-3 { grid-column: span 2; }
     .case-4 { grid-column: span 2; }
-    .case-5 { grid-column: span 2; }
-    .case-6 { grid-column: span 2; }
     .cases-note { margin-top: 22px; color: var(--muted); font-size: 14px; font-weight: 500; }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 100; background: rgba(6,6,6,.94);
+      display: grid; grid-template-rows: auto 1fr auto; place-items: center; padding: 24px;
+    }
+    .lightbox[hidden] { display: none; }
+    .lightbox-head { width: 100%; max-width: 980px; display: flex; align-items: center; justify-content: space-between; gap: 16px; color: #fff; }
+    .lightbox-title { font-family: var(--font-display); font-size: clamp(18px, 2.6vw, 26px); text-transform: uppercase; letter-spacing: -.02em; }
+    .lightbox-close {
+      width: 42px; height: 42px; flex: 0 0 auto; border: 1px solid rgba(255,255,255,.3); background: transparent;
+      color: #fff; font-size: 22px; line-height: 1; cursor: pointer;
+    }
+    .lightbox-close:hover { border-color: var(--red); color: var(--red); }
+    .lightbox-body { position: relative; width: 100%; max-width: 980px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+    .lightbox-figure { margin: 0; max-width: 100%; max-height: 68vh; display: grid; gap: 12px; justify-items: center; }
+    .lightbox-figure img { max-width: 100%; max-height: 68vh; object-fit: contain; border: 1px solid rgba(255,255,255,.14); }
+    .lightbox-caption { color: rgba(255,255,255,.78); font-size: 14px; font-weight: 600; text-align: center; }
+    .lightbox-nav {
+      width: 46px; height: 46px; flex: 0 0 auto; border: 1px solid rgba(255,255,255,.3); background: transparent;
+      color: #fff; font-size: 22px; cursor: pointer;
+    }
+    .lightbox-nav:hover { border-color: var(--red); color: var(--red); }
+    .lightbox-nav[hidden] { visibility: hidden; }
+    .lightbox-counter { color: rgba(255,255,255,.6); font-family: var(--font-ui); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    @media (max-width: 560px) {
+      .lightbox-body { flex-direction: column; }
+      .lightbox-nav { width: 100%; height: 40px; }
+    }
 
     /* PROCESS */
     .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
@@ -465,7 +463,7 @@
       .audience { grid-template-columns: 1fr 1fr; }
       .process-grid { grid-template-columns: 1fr 1fr; }
       .cases { grid-template-columns: repeat(2, 1fr); }
-      .case-1, .case-2, .case-3, .case-4, .case-5, .case-6 { grid-column: span 1; grid-row: span 1; }
+      .case-1, .case-2, .case-3, .case-4 { grid-column: span 1; grid-row: span 1; }
       .case-1 { grid-column: span 2; }
     }
     @media (max-width: 1180px) {
@@ -477,7 +475,6 @@
     @media (max-width: 920px) {
       .hero-inner, .section-head, .sports, .founder-inner, .contact-inner { grid-template-columns: 1fr; }
       .sport.football { grid-column: auto; }
-      .hero-photo { order: -1; margin: 0 0 8px; }
       .founder-photo { min-height: 380px; }
       section { padding: 68px 18px; }
       .float-actions { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; box-shadow: 0 -8px 24px rgba(0,0,0,.12); }
@@ -499,7 +496,6 @@
       .tech-item:nth-last-child(2) { border-bottom: 1px solid var(--line); }
       .case-1 { grid-column: span 1; }
       .founder-tags { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .brand span:last-child { display: none; }
       .founder-body, form.lead-form { padding: 26px; }
     }
   </style>
@@ -508,16 +504,16 @@
   <header class="site-header">
     <nav class="nav" aria-label="Главная навигация">
       <a class="brand" href="#top" aria-label="Mitin Sport Group">
-        <img class="brand-shield" src="assets/logo-msg.png" alt="" aria-hidden="true" />
-        <span class="wordmark"><b>Mitin Sport</b><i>Group</i></span>
+        <img class="brand-shield" src="assets/logo-msg.png" alt="Mitin Sport Group" />
       </a>
       <div class="nav-links">
         <a href="#services">Услуги</a>
         <a href="#technology">Технологии</a>
         <a href="#sports">Виды спорта</a>
-        <a href="#founder">Основатель</a>
+        <a href="#founder">О нас</a>
         <a href="#portfolio">Портфолио</a>
         <a href="#process">Процесс</a>
+        <a href="#contact">Контакты</a>
       </div>
       <a class="btn btn-red" href="#contact">Оставить заявку</a>
     </nav>
@@ -547,12 +543,6 @@
             <a class="btn btn-red" href="#contact">Оставить заявку</a>
             <a class="btn btn-ghost" href="#services">Смотреть услуги</a>
           </div>
-        </div>
-        <div class="hero-photo">
-          <div class="frame">
-            <img src="assets/hero-founder.jpg" alt="Григорий Митин, основатель Mitin Sport Group" />
-          </div>
-          <div class="tag"><img class="shield-sm" src="assets/logo-msg.png" alt="" aria-hidden="true" /> Григорий Митин · <b>основатель</b></div>
         </div>
       </div>
     </section>
@@ -602,6 +592,21 @@
             <div class="service-number">07 / Media</div>
             <h3>Медиа сопровождение</h3>
             <p>Трансляции, фото- и видеосъёмка, комментаторы, хайлайты и готовый контент для участников и партнёров.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-number">08 / Training</div>
+            <h3>Организация тренировочного процесса</h3>
+            <p>Планирование тренировочного цикла, подбор тренеров и площадок, контроль нагрузки и дисциплины на регулярных занятиях.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-number">09 / Training Camps</div>
+            <h3>Организация и проведение сборов</h3>
+            <p>Подбор базы, логистика и проживание, план тренировок и товарищеских игр, сопровождение команды на выезде под ключ.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-number">10 / Partnerships</div>
+            <h3>Спонсорство и партнёрства</h3>
+            <p>Упаковка спонсорских пакетов, интеграция брендов в турнир и сопровождение партнёров на всех этапах события.</p>
           </article>
         </div>
       </div>
@@ -734,7 +739,7 @@
     <!-- FOUNDER -->
     <section class="founder" id="founder">
       <div class="container" style="margin-bottom:36px">
-        <div class="kicker">Основатель и лицо компании</div>
+        <div class="kicker">О нас</div>
         <h2 style="max-width:1180px">Турниры <span class="accent-slash">под</span> управлением действующего футбольного арбитра <span class="accent-slash">всероссийской категории</span></h2>
       </div>
       <div class="founder-inner">
@@ -795,37 +800,49 @@
             <div class="kicker">Портфолио</div>
             <h2>Спорт <span class="accent-slash">в</span> деле</h2>
           </div>
-          <p>Кадры с турниров и матчей: судейство профессионального уровня, VAR, пляжный и детский футбол, организация на площадке.</p>
+          <p>Турниры, в которых Григорий Митин и команда MSG отвечали за судейство, VAR и организацию площадки. Нажмите на турнир, чтобы открыть фотогалерею.</p>
         </div>
         <div class="cases">
-          <figure class="case case-1">
-            <img src="assets/case-tunnel.jpg" alt="Выход команд на поле" loading="lazy" />
-            <figcaption class="label"><small>Matchday</small><b>Выход команд на поле</b><span>Детский футбольный турнир · организация матч Day</span></figcaption>
+          <figure class="case case-1" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="superheroes">
+            <span class="gallery-hint">📷 Галерея · 2 фото</span>
+            <img src="assets/case-tunnel.jpg" alt="Выход команд на поле под дым-машину, Кубок Супергероев РПЛ/ФНЛ" loading="lazy" />
+            <figcaption class="label"><small>Октябрь · Лоо-Арена, Сочи</small><b>Кубок Супергероев РПЛ/ФНЛ</b><span>5 заездов · детские и подростковые команды · VAR-сопровождение</span></figcaption>
           </figure>
-          <figure class="case case-2">
-            <img src="assets/case-beach.jpg" alt="Судейство пляжного футбола" loading="lazy" />
-            <figcaption class="label"><small>Пляжный футбол</small><b>Судейская бригада</b><span>Матч пляжного футбола</span></figcaption>
+          <figure class="case case-2" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="football-day">
+            <span class="gallery-hint">📷 2 фото</span>
+            <img src="assets/case-award.jpg" alt="Награждение на Всероссийском дне футбола в Лужниках" loading="lazy" />
+            <figcaption class="label"><small>24 мая · ОК «Лужники»</small><b>Всероссийский день футбола</b><span>Организация турниров в 5 категориях</span></figcaption>
           </figure>
-          <figure class="case case-3">
-            <img src="assets/case-var.jpg" alt="Система VAR на турнире" loading="lazy" />
-            <figcaption class="label"><small>Технологии</small><b>VAR на площадке</b><span>Видеопомощь арбитру</span></figcaption>
+          <figure class="case case-3" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="match-premier">
+            <span class="gallery-hint">📷 1 фото</span>
+            <img src="assets/case-training.jpg" alt="Судейство детского турнира Кубок Матч Премьер в Крымске" loading="lazy" />
+            <figcaption class="label"><small>Крымск</small><b>Кубок Матч Премьер</b><span>6 недель · 400+ детских матчей</span></figcaption>
           </figure>
-          <figure class="case case-4">
-            <img src="assets/case-training.jpg" alt="Физическая подготовка арбитра" loading="lazy" />
-            <figcaption class="label"><small>Подготовка</small><b>Готовность арбитров</b><span>Физический контроль на песке</span></figcaption>
-          </figure>
-          <figure class="case case-5">
-            <img src="assets/case-night.jpg" alt="Судейство вечернего матча" loading="lazy" />
-            <figcaption class="label"><small>Матч</small><b>Контроль игры</b><span>Вечерний матч под светом</span></figcaption>
-          </figure>
-          <figure class="case case-6">
-            <img src="assets/case-award.jpg" alt="Награждение юного футболиста на турнире" loading="lazy" />
-            <figcaption class="label"><small>Награждение</small><b>Битва школ</b><span>Детский турнир · Московский спорт</span></figcaption>
+          <figure class="case case-4" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="beach-champ">
+            <span class="gallery-hint">📷 1 фото</span>
+            <img src="assets/case-beach.jpg" alt="Судейство I этапа чемпионата России по пляжному футболу" loading="lazy" />
+            <figcaption class="label"><small>«Нова Арена»</small><b>Чемпионат России · пляжный футбол</b><span>I этап · судейская бригада</span></figcaption>
           </figure>
         </div>
-        <p class="cases-note">* Раздел дополним кейсами с названиями турниров, числом команд и итогами — пришлите материалы.</p>
+        <p class="cases-note">* Фото пока временные — заменим на кадры конкретно с этих турниров, как только пришлёте материалы.</p>
       </div>
     </section>
+
+    <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Фотогалерея турнира">
+      <div class="lightbox-head">
+        <div class="lightbox-title" id="lightbox-title"></div>
+        <button class="lightbox-close" type="button" id="lightbox-close" aria-label="Закрыть галерею">×</button>
+      </div>
+      <div class="lightbox-body">
+        <button class="lightbox-nav lightbox-prev" type="button" id="lightbox-prev" aria-label="Предыдущее фото">‹</button>
+        <figure class="lightbox-figure">
+          <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+          <figcaption class="lightbox-caption" id="lightbox-caption"></figcaption>
+        </figure>
+        <button class="lightbox-nav lightbox-next" type="button" id="lightbox-next" aria-label="Следующее фото">›</button>
+      </div>
+      <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
 
     <!-- PROCESS -->
     <section id="process" class="alt">
@@ -1090,6 +1107,110 @@
           submit.disabled = false;
           submit.textContent = originalText;
         }
+      });
+    })();
+
+    (() => {
+      const TOURNAMENTS = {
+        superheroes: {
+          title: 'Кубок Супергероев РПЛ/ФНЛ',
+          photos: [
+            { src: 'assets/case-tunnel.jpg', alt: 'Выход команд на поле под дым-машину', caption: 'Выход команд на поле · Лоо-Арена, Сочи' },
+            { src: 'assets/case-var.jpg', alt: 'Система VAR на турнире', caption: 'VAR-зона турнира' }
+          ]
+        },
+        'football-day': {
+          title: 'Всероссийский день футбола',
+          photos: [
+            { src: 'assets/case-award.jpg', alt: 'Награждение юного футболиста', caption: 'Награждение · ОК «Лужники»' },
+            { src: 'assets/case-night.jpg', alt: 'Матч под вечерним освещением', caption: 'Матч на площадке события' }
+          ]
+        },
+        'match-premier': {
+          title: 'Кубок Матч Премьер',
+          photos: [
+            { src: 'assets/case-training.jpg', alt: 'Судейство детского турнира в Крымске', caption: 'Судейство · Крымск' }
+          ]
+        },
+        'beach-champ': {
+          title: 'Чемпионат России · пляжный футбол, I этап',
+          photos: [
+            { src: 'assets/case-beach.jpg', alt: 'Судейская бригада на матче пляжного футбола', caption: 'Судейская бригада · «Нова Арена»' }
+          ]
+        }
+      };
+
+      const lightbox = document.getElementById('lightbox');
+      if (!lightbox) return;
+
+      const titleEl = document.getElementById('lightbox-title');
+      const imgEl = document.getElementById('lightbox-img');
+      const captionEl = document.getElementById('lightbox-caption');
+      const counterEl = document.getElementById('lightbox-counter');
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
+      const closeBtn = document.getElementById('lightbox-close');
+
+      let activeKey = null;
+      let activeIndex = 0;
+      let lastFocused = null;
+
+      function render() {
+        const tour = TOURNAMENTS[activeKey];
+        const photo = tour.photos[activeIndex];
+        titleEl.textContent = tour.title;
+        imgEl.src = photo.src;
+        imgEl.alt = photo.alt;
+        captionEl.textContent = photo.caption;
+        counterEl.textContent = `${activeIndex + 1} / ${tour.photos.length}`;
+        const multi = tour.photos.length > 1;
+        prevBtn.hidden = !multi;
+        nextBtn.hidden = !multi;
+      }
+
+      function openGallery(key, triggerEl) {
+        if (!TOURNAMENTS[key]) return;
+        activeKey = key;
+        activeIndex = 0;
+        lastFocused = triggerEl || document.activeElement;
+        render();
+        lightbox.hidden = false;
+        closeBtn.focus();
+      }
+
+      function closeGallery() {
+        lightbox.hidden = true;
+        activeKey = null;
+        if (lastFocused) lastFocused.focus();
+      }
+
+      function step(delta) {
+        const tour = TOURNAMENTS[activeKey];
+        if (!tour || tour.photos.length <= 1) return;
+        activeIndex = (activeIndex + delta + tour.photos.length) % tour.photos.length;
+        render();
+      }
+
+      document.querySelectorAll('.case[data-gallery]').forEach((card) => {
+        card.addEventListener('click', () => openGallery(card.dataset.gallery, card));
+        card.addEventListener('keydown', (event) => {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          event.preventDefault();
+          openGallery(card.dataset.gallery, card);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeGallery);
+      prevBtn.addEventListener('click', () => step(-1));
+      nextBtn.addEventListener('click', () => step(1));
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) closeGallery();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (lightbox.hidden) return;
+        if (event.key === 'Escape') closeGallery();
+        if (event.key === 'ArrowLeft') step(-1);
+        if (event.key === 'ArrowRight') step(1);
       });
     })();
   </script>
