@@ -187,36 +187,44 @@
 
     /* TECHNOLOGY */
     .tech-panel {
-      display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px;
-      border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow-soft);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px;
     }
     .tech-hero {
       position: relative; min-height: 360px; padding: 34px; overflow: hidden;
       background: var(--ink); color: #fff; display: grid; align-content: end;
     }
-    .tech-hero::before {
-      content: "VAR"; position: absolute; right: -12px; top: 18px;
-      font-family: var(--font-display); font-size: clamp(118px, 18vw, 230px);
-      line-height: .76; color: rgba(255,255,255,.06); letter-spacing: -.03em;
+    .tech-hero .hero-photo {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
+      filter: grayscale(1) contrast(1.25) brightness(.8);
+    }
+    .tech-hero .hero-duotone {
+      position: absolute; inset: 0; z-index: 0; mix-blend-mode: multiply;
+      background: linear-gradient(160deg, rgba(227,6,19,.6), rgba(12,12,12,.95));
+    }
+    .tech-hero .hero-halftone {
+      position: absolute; inset: 0; z-index: 0; opacity: .3; mix-blend-mode: screen;
+      background-image: radial-gradient(rgba(255,255,255,.9) 1px, transparent 1.3px);
+      background-size: 5px 5px;
     }
     .tech-hero::after {
       content: ""; position: absolute; top: -22%; right: 26%; width: 14px; height: 150%;
-      background: var(--red); transform: rotate(24deg);
+      background: rgba(255,255,255,.16); transform: rotate(24deg); z-index: 0;
     }
     .tech-hero small, .tech-item small {
+      position: relative; z-index: 1;
       font-family: var(--font-ui); color: var(--red); font-size: 12px; font-weight: 950;
       letter-spacing: .14em; text-transform: uppercase;
     }
+    .tech-item small { color: var(--red); }
+    .tech-hero small { color: #ff5b63; }
     .tech-hero h3 {
       position: relative; z-index: 1; margin: 22px 0 16px;
       font-family: var(--font-display); font-size: clamp(36px, 5vw, 66px);
       line-height: .9; letter-spacing: -.02em; text-transform: uppercase;
     }
     .tech-hero p { position: relative; z-index: 1; margin: 0; max-width: 620px; color: rgba(255,255,255,.82); font-size: 18px; line-height: 1.45; font-weight: 600; }
-    .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-left: 1px solid var(--line); }
-    .tech-item { min-height: 180px; padding: 28px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); background: var(--card); }
-    .tech-item:nth-child(even) { border-right: 0; }
-    .tech-item:nth-last-child(-n+2) { border-bottom: 0; }
+    .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .tech-item { min-height: 180px; padding: 28px; border: 1px solid var(--line); background: var(--card); }
     .tech-item h4 {
       margin: 30px 0 10px; font-family: var(--font-display); font-size: 24px;
       line-height: .98; letter-spacing: -.04em; text-transform: uppercase;
@@ -224,25 +232,35 @@
     .tech-item p { margin: 0; color: var(--muted); line-height: 1.45; font-weight: 500; font-size: 15px; }
 
     /* MEDIA */
-    .media-panel { display: grid; grid-template-columns: .92fr 1.08fr; gap: 16px; }
+    .media-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
     .media-main {
       position: relative; min-height: 340px; padding: 34px; overflow: hidden;
-      background: linear-gradient(150deg, var(--red), var(--red-dark)); color: #fff;
+      background: var(--ink); color: #fff;
       display: grid; align-content: end;
     }
-    .media-main::before {
-      content: ""; position: absolute; top: -22%; right: 22%; width: 14px; height: 150%;
-      background: rgba(255,255,255,.24); transform: rotate(24deg);
+    .media-main .hero-photo {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; z-index: 0;
+      filter: grayscale(1) contrast(1.2) brightness(.85);
+    }
+    .media-main .hero-duotone {
+      position: absolute; inset: 0; z-index: 0; mix-blend-mode: multiply;
+      background: linear-gradient(155deg, rgba(227,6,19,.88), rgba(12,12,12,.85));
+    }
+    .media-main .hero-halftone {
+      position: absolute; inset: 0; z-index: 0; opacity: .3; mix-blend-mode: screen;
+      background-image: radial-gradient(rgba(255,255,255,.9) 1px, transparent 1.3px);
+      background-size: 5px 5px;
     }
     .media-main::after {
       content: ""; position: absolute; top: -20%; right: 29%; width: 5px; height: 140%;
-      background: rgba(255,255,255,.18); transform: rotate(24deg);
+      background: rgba(255,255,255,.22); transform: rotate(24deg); z-index: 0;
     }
     .media-main small, .media-card small {
+      position: relative; z-index: 1;
       font-family: var(--font-ui); font-size: 12px; font-weight: 950;
       letter-spacing: .14em; text-transform: uppercase;
     }
-    .media-main small { color: rgba(255,255,255,.82); }
+    .media-main small { color: #ff5b63; }
     .media-main h3 {
       position: relative; z-index: 1; margin: 22px 0 16px;
       font-family: var(--font-display); font-size: clamp(40px, 5.4vw, 74px);
@@ -258,8 +276,8 @@
     }
     .media-card p { margin: 0; color: var(--muted); line-height: 1.45; font-weight: 500; font-size: 15px; }
     .tech-item, .media-card {
-      position: relative; overflow: hidden; cursor: pointer;
-      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, background-color .22s ease;
+      position: relative; overflow: hidden;
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
     }
     .tech-item::before, .media-card::before {
       content: ""; position: absolute; right: -58px; bottom: -64px;
@@ -267,43 +285,35 @@
       clip-path: polygon(20% 0, 100% 0, 80% 100%, 0 100%); opacity: 0;
       transition: opacity .22s ease, transform .22s ease;
     }
-    .tech-item::after, .media-card::after {
-      content: "+"; position: absolute; right: 22px; top: 22px;
-      width: 30px; height: 30px; border: 1px solid rgba(0,0,0,.14);
-      display: grid; place-items: center; color: var(--ink);
-      font-family: var(--font-ui); font-size: 18px; font-weight: 900; line-height: 1;
-      background: rgba(255,255,255,.78); transition: transform .22s ease, color .22s ease, border-color .22s ease;
-    }
     .tech-item > *, .media-card > * { position: relative; z-index: 1; }
-    .tech-item:hover, .media-card:hover,
-    .tech-item:focus-visible, .media-card:focus-visible,
-    .tech-item.is-open, .media-card.is-open {
+    .tech-item:hover, .media-card:hover {
       transform: translateY(-6px); border-color: var(--red); box-shadow: var(--shadow-soft);
     }
-    .tech-item:hover::before, .media-card:hover::before,
-    .tech-item.is-open::before, .media-card.is-open::before { opacity: .1; transform: translate(-6px, -4px); }
-    .tech-item.is-open::after, .media-card.is-open::after {
-      content: "−"; color: var(--red); border-color: rgba(230,0,18,.35); transform: rotate(180deg);
-    }
-    .dynamic-card-ready .tech-item p, .dynamic-card-ready .media-card p {
-      max-height: 0; opacity: 0; overflow: hidden; transform: translateY(-4px);
-      transition: max-height .28s ease, opacity .2s ease, transform .2s ease, margin-top .2s ease;
-    }
-    .dynamic-card-ready .tech-item.is-open p, .dynamic-card-ready .media-card.is-open p {
-      max-height: 260px; opacity: 1; transform: translateY(0);
-    }
+    .tech-item:hover::before, .media-card:hover::before { opacity: .1; transform: translate(-6px, -4px); }
 
     /* SPORTS */
     .sports { display: grid; grid-template-columns: 1.35fr repeat(4, 1fr); gap: 16px; }
     .sport { position: relative; min-height: 220px; padding: 26px; border: 1px solid var(--line); overflow: hidden; display: grid; align-content: start; gap: 14px; background: var(--card); }
-    .sport.football { background: linear-gradient(150deg, var(--red), var(--red-dark)); color: #fff; border-color: transparent; }
-    .sport.football::after { content: ""; position: absolute; top: -25%; right: 22%; width: 12px; height: 150%; background: rgba(255,255,255,.22); transform: rotate(24deg); }
-    .sport.football::before { content: ""; position: absolute; top: -25%; right: 27%; width: 5px; height: 150%; background: rgba(255,255,255,.16); transform: rotate(24deg); }
+    .sport.has-photo { color: #fff; border-color: transparent; }
+    .sport .hero-photo {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
+      filter: grayscale(1) contrast(1.2) brightness(.78);
+    }
+    .sport .hero-duotone {
+      position: absolute; inset: 0; z-index: 0; mix-blend-mode: multiply;
+      background: linear-gradient(155deg, rgba(227,6,19,.75), rgba(12,12,12,.9));
+    }
+    .sport .hero-halftone {
+      position: absolute; inset: 0; z-index: 0; opacity: .28; mix-blend-mode: screen;
+      background-image: radial-gradient(rgba(255,255,255,.9) 1px, transparent 1.3px);
+      background-size: 5px 5px;
+    }
+    .sport small, .sport h3, .sport p { position: relative; z-index: 1; }
     .sport small { min-height: 30px; display: flex; align-items: flex-start; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 900; opacity: .7; }
-    .sport.football small { opacity: .85; }
+    .sport.has-photo small { opacity: .85; }
     .sport h3 { margin: 0; min-height: 58px; font-size: 30px; line-height: .95; letter-spacing: -.05em; text-transform: uppercase; }
     .sport p { margin: 0; color: var(--muted); font-weight: 500; line-height: 1.4; font-size: 15px; }
-    .sport.football p { color: rgba(255,255,255,.92); }
+    .sport.has-photo p { color: rgba(255,255,255,.92); }
 
     /* FOUNDER */
     .founder-inner {
@@ -456,7 +466,6 @@
     @media (max-width: 1040px) {
       .services { grid-template-columns: 1fr 1fr; }
       .tech-panel { grid-template-columns: 1fr; }
-      .tech-grid { border-left: 0; border-top: 1px solid var(--line); }
       .media-panel { grid-template-columns: 1fr; }
       .sports { grid-template-columns: repeat(2, 1fr); }
       .sport.football { grid-column: span 2; }
@@ -492,8 +501,6 @@
       .services, .tech-grid, .media-grid, .audience, .process-grid, .cases { grid-template-columns: 1fr; }
       .tech-hero { min-height: 320px; padding: 26px; }
       .media-main { min-height: 320px; padding: 26px; }
-      .tech-item { border-right: 0; }
-      .tech-item:nth-last-child(2) { border-bottom: 1px solid var(--line); }
       .case-1 { grid-column: span 1; }
       .founder-tags { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .founder-body, form.lead-form { padding: 26px; }
@@ -624,6 +631,9 @@
         </div>
         <div class="tech-panel">
           <div class="tech-hero">
+            <img class="hero-photo" src="assets/tech-var-booth.jpg" alt="Судейская будка видеопросмотра VAR на турнире" loading="lazy" />
+            <div class="hero-duotone" aria-hidden="true"></div>
+            <div class="hero-halftone" aria-hidden="true"></div>
             <small>Video Assistant Referee</small>
             <h3>VAR сопровождение матчей</h3>
             <p>Помогаем встроить видеопросмотр в структуру турнира так, чтобы спорные эпизоды разбирались быстро, прозрачно и по единому протоколу.</p>
@@ -666,6 +676,9 @@
         </div>
         <div class="media-panel">
           <div class="media-main">
+            <img class="hero-photo" src="assets/media-tunnel-smoke.jpg" alt="Выход команды на поле в дыму — момент для трансляции" loading="lazy" />
+            <div class="hero-duotone" aria-hidden="true"></div>
+            <div class="hero-halftone" aria-hidden="true"></div>
             <small>Broadcast · Photo · Video</small>
             <h3>Матч в эфире</h3>
             <p>Собираем медиа-команду под формат события: от одной камеры и фотоотчёта до полноценной трансляции с комментатором.</p>
@@ -707,27 +720,42 @@
           <p>Организуем турниры по футболу, теннису, паделу, настольному теннису, волейболу, баскетболу и другим спортивным форматам под задачу события.</p>
         </div>
         <div class="sports">
-          <div class="sport football">
+          <div class="sport football has-photo">
+            <img class="hero-photo" src="assets/sport-football.jpg" alt="Выход команды на поле перед футбольным матчем" loading="lazy" />
+            <div class="hero-duotone" aria-hidden="true"></div>
+            <div class="hero-halftone" aria-hidden="true"></div>
             <small>Основное направление</small>
             <h3>Футбол</h3>
             <p>Классический, мини-футбол, пляжный, детский, корпоративный. Турниры, лиги и кубки любого масштаба.</p>
           </div>
-          <div class="sport tennis">
+          <div class="sport tennis has-photo">
+            <img class="hero-photo" src="assets/sport-tennis.jpg" alt="Теннисистка в движении на корте" loading="lazy" />
+            <div class="hero-duotone" aria-hidden="true"></div>
+            <div class="hero-halftone" aria-hidden="true"></div>
             <small>Ракеточные виды</small>
             <h3>Теннис и падел</h3>
             <p>Большой теннис, падел, парные форматы, клубные и корпоративные турниры.</p>
           </div>
-          <div class="sport table-tennis">
+          <div class="sport table-tennis has-photo">
+            <img class="hero-photo" src="assets/sport-table-tennis.jpg" alt="Подача в настольном теннисе крупным планом" loading="lazy" />
+            <div class="hero-duotone" aria-hidden="true"></div>
+            <div class="hero-halftone" aria-hidden="true"></div>
             <small>Динамичный формат</small>
             <h3>Настольный теннис</h3>
             <p>Быстрые сетки, рейтинговые группы, командные зачёты и финальные стадии.</p>
           </div>
-          <div class="sport volleyball">
+          <div class="sport volleyball has-photo">
+            <img class="hero-photo" src="assets/sport-volleyball.jpg" alt="Нападающий удар в волейбольном матче" loading="lazy" />
+            <div class="hero-duotone" aria-hidden="true"></div>
+            <div class="hero-halftone" aria-hidden="true"></div>
             <small>Командные виды</small>
             <h3>Волейбол</h3>
             <p>Классический и пляжный волейбол, микс-форматы и корпоративные турниры.</p>
           </div>
-          <div class="sport other">
+          <div class="sport other has-photo">
+            <img class="hero-photo" src="assets/sport-other.jpg" alt="Баскетбольный матч в игровом зале" loading="lazy" />
+            <div class="hero-duotone" aria-hidden="true"></div>
+            <div class="hero-halftone" aria-hidden="true"></div>
             <small>Под запрос</small>
             <h3>Другие виды</h3>
             <p>Баскетбол, бадминтон, фитнес-соревнования, спартакиады и спортивные фестивали.</p>
@@ -988,42 +1016,6 @@
     <a class="fa-write" href="#contact">Оставить заявку</a>
   </div>
   <script>
-    (() => {
-      const groups = ['.tech-grid', '.media-grid'];
-      groups.forEach((selector) => {
-        const group = document.querySelector(selector);
-        if (!group) return;
-
-        const cards = [...group.querySelectorAll('.tech-item, .media-card')];
-        group.classList.add('dynamic-card-ready');
-        cards.forEach((card, index) => {
-          card.tabIndex = 0;
-          card.setAttribute('role', 'button');
-          card.setAttribute('aria-expanded', index === 0 ? 'true' : 'false');
-          if (index === 0) card.classList.add('is-open');
-
-          const toggle = () => {
-            const isOpen = card.classList.contains('is-open');
-            cards.forEach((item) => {
-              item.classList.remove('is-open');
-              item.setAttribute('aria-expanded', 'false');
-            });
-            if (!isOpen) {
-              card.classList.add('is-open');
-              card.setAttribute('aria-expanded', 'true');
-            }
-          };
-
-          card.addEventListener('click', toggle);
-          card.addEventListener('keydown', (event) => {
-            if (event.key !== 'Enter' && event.key !== ' ') return;
-            event.preventDefault();
-            toggle();
-          });
-        });
-      });
-    })();
-
     (() => {
       const form = document.querySelector('.lead-form');
       if (!form) return;
