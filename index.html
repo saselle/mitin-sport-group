@@ -355,7 +355,7 @@
     .aud p { margin: 0; color: var(--muted); line-height: 1.46; font-weight: 500; font-size: 15px; }
 
     /* PORTFOLIO */
-    .cases { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 200px; gap: 14px; }
+    .cases { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 240px; gap: 14px; }
     .case { position: relative; overflow: hidden; border: 1px solid var(--line); background: #eee; }
     .case img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
     .case:hover img { transform: scale(1.06); }
@@ -372,11 +372,14 @@
       background: rgba(12,12,12,.55); color: #fff; backdrop-filter: blur(4px);
       font-family: var(--font-ui); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
     }
-    .case-1 { grid-column: span 6; grid-row: span 2; }
-    .case-2 { grid-column: span 2; }
-    .case-3 { grid-column: span 2; }
-    .case-4 { grid-column: span 2; }
     .cases-note { margin-top: 22px; color: var(--muted); font-size: 14px; font-weight: 500; }
+    .case-placeholder {
+      position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; gap: 6px; padding: 20px; border: 1px dashed var(--line); background: var(--paper);
+    }
+    .case-placeholder small { color: var(--muted); font-size: 11px; font-weight: 950; letter-spacing: .12em; text-transform: uppercase; }
+    .case-placeholder b { font-family: var(--font-display); font-weight: 700; font-size: 16px; line-height: 1.15; letter-spacing: -.02em; text-transform: uppercase; color: var(--ink); }
+    .case-placeholder span { font-size: 12px; color: var(--muted); font-weight: 600; }
 
     /* LIGHTBOX */
     .lightbox {
@@ -475,8 +478,6 @@
       .audience { grid-template-columns: 1fr 1fr; }
       .process-grid { grid-template-columns: 1fr 1fr; }
       .cases { grid-template-columns: repeat(2, 1fr); }
-      .case-1, .case-2, .case-3, .case-4 { grid-column: span 1; grid-row: span 1; }
-      .case-1 { grid-column: span 2; }
     }
     @media (max-width: 1360px) {
       .nav-links { display: none; }
@@ -505,7 +506,6 @@
       .services, .tech-grid, .media-grid, .audience, .process-grid, .cases { grid-template-columns: 1fr; }
       .tech-hero { min-height: 320px; padding: 26px; }
       .media-main { min-height: 320px; padding: 26px; }
-      .case-1 { grid-column: span 1; }
       .founder-tags { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .founder-body, form.lead-form { padding: 26px; }
     }
@@ -802,28 +802,73 @@
           <p>Турниры, в которых Григорий Митин и команда MSG отвечали за судейство, VAR и организацию площадки. Нажмите на турнир, чтобы открыть фотогалерею.</p>
         </div>
         <div class="cases">
-          <figure class="case case-1" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="superheroes">
-            <span class="gallery-hint">📷 Галерея · 2 фото</span>
-            <img src="assets/case-tunnel.jpg" alt="Выход команд на поле под дым-машину, Кубок Супергероев РПЛ/ФНЛ" loading="lazy" />
-            <figcaption class="label"><small>Октябрь · Лоо-Арена, Сочи</small><b>Кубок Супергероев РПЛ/ФНЛ</b><span>5 заездов · детские и подростковые команды · VAR-сопровождение</span></figcaption>
+          <figure class="case" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="beach-champ">
+            <span class="gallery-hint">📷 3 фото</span>
+            <img src="assets/beach-champ-referees.jpg" alt="Судейство на чемпионате России по пляжному футболу" loading="lazy" />
+            <figcaption class="label"><small>Пляжный футбол</small><b>Чемпионат и Кубок России</b><span>Судейская бригада</span></figcaption>
           </figure>
-          <figure class="case case-2" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="football-day">
-            <span class="gallery-hint">📷 2 фото</span>
-            <img src="assets/case-award.jpg" alt="Награждение на Всероссийском дне футбола в Лужниках" loading="lazy" />
-            <figcaption class="label"><small>24 мая · ОК «Лужники»</small><b>Всероссийский день футбола</b><span>Организация турниров в 5 категориях</span></figcaption>
+
+          <div class="case-placeholder">
+            <small>Скоро</small>
+            <b>Первенство России по футзалу</b>
+            <span>Фото уточняются</span>
+          </div>
+
+          <div class="case-placeholder">
+            <small>Скоро</small>
+            <b>Юношеская футбольная лига</b>
+            <span>Фото уточняются</span>
+          </div>
+
+          <div class="case-placeholder">
+            <small>Скоро</small>
+            <b>Финал «Кожаный мяч»</b>
+            <span>Фото уточняются</span>
+          </div>
+
+          <div class="case-placeholder">
+            <small>Скоро</small>
+            <b>Всероссийский День футбола</b>
+            <span>Фото уточняются</span>
+          </div>
+
+          <figure class="case" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="nml">
+            <span class="gallery-hint">📷 4 фото</span>
+            <img src="assets/nml-crowd.jpg" alt="Матч Национальной мини-футбольной лиги" loading="lazy" />
+            <figcaption class="label"><small>Мини-футбол</small><b>НМЛ</b><span>Национальная мини-футбольная лига</span></figcaption>
           </figure>
-          <figure class="case case-3" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="match-premier">
+
+          <div class="case-placeholder">
+            <small>Скоро</small>
+            <b>Кубок Подмосковья</b>
+            <span>Пляжный футбол · фото уточняются</span>
+          </div>
+
+          <figure class="case" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="superheroes">
+            <span class="gallery-hint">📷 5 фото</span>
+            <img src="assets/superheroes-trophy.jpg" alt="Победа на Кубке Супергероев РПЛ/ФНЛ" loading="lazy" />
+            <figcaption class="label"><small>Лоо-Арена, Сочи</small><b>Кубок Супергероев РПЛ/ФНЛ</b><span>VAR-сопровождение</span></figcaption>
+          </figure>
+
+          <figure class="case" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="battle-schools">
             <span class="gallery-hint">📷 1 фото</span>
-            <img src="assets/case-training.jpg" alt="Судейство детского турнира Кубок Матч Премьер в Крымске" loading="lazy" />
-            <figcaption class="label"><small>Крымск</small><b>Кубок Матч Премьер</b><span>6 недель · 400+ детских матчей</span></figcaption>
+            <img src="assets/case-award.jpg" alt="Награждение на турнире «Битва школ»" loading="lazy" />
+            <figcaption class="label"><small>Московский спорт</small><b>Битва Школ</b><span>Детский турнир</span></figcaption>
           </figure>
-          <figure class="case case-4" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="beach-champ">
-            <span class="gallery-hint">📷 1 фото</span>
-            <img src="assets/case-beach.jpg" alt="Судейство I этапа чемпионата России по пляжному футболу" loading="lazy" />
-            <figcaption class="label"><small>«Нова Арена»</small><b>Чемпионат России · пляжный футбол</b><span>I этап · судейская бригада</span></figcaption>
-          </figure>
+
+          <div class="case-placeholder">
+            <small>Скоро</small>
+            <b>«Бесков и его команда»</b>
+            <span>Фото уточняются</span>
+          </div>
+
+          <div class="case-placeholder">
+            <small>Скоро</small>
+            <b>Мемориал К. С. Сарсания</b>
+            <span>Фото уточняются</span>
+          </div>
         </div>
-        <p class="cases-note">* Фото пока временные — заменим на кадры конкретно с этих турниров, как только пришлёте материалы.</p>
+        <p class="cases-note">* Часть турниров пока без фото — материалы уточняются и появятся по мере поступления.</p>
       </div>
     </section>
 
@@ -1113,30 +1158,37 @@
 
     (() => {
       const TOURNAMENTS = {
+        'beach-champ': {
+          title: 'Чемпионат и Кубок России по пляжному футболу',
+          photos: [
+            { src: 'assets/case-beach.jpg', alt: 'Судейская бригада на матче пляжного футбола', caption: 'Судейская бригада' },
+            { src: 'assets/beach-champ-referees.jpg', alt: 'Судьи обсуждают эпизод на пляжном футболе', caption: 'Разбор эпизода' },
+            { src: 'assets/beach-champ-training.jpg', alt: 'Физическая подготовка на песке', caption: 'Физическая подготовка арбитров' }
+          ]
+        },
+        nml: {
+          title: 'НМЛ — Национальная мини-футбольная лига',
+          photos: [
+            { src: 'assets/nml-crowd.jpg', alt: 'Трибуны болельщиков на матче НМЛ', caption: 'Атмосфера трибун' },
+            { src: 'assets/nml-action1.jpg', alt: 'Игровой момент матча НМЛ', caption: 'Игровой момент' },
+            { src: 'assets/nml-goalkeeper.jpg', alt: 'Вратарь принимает мяч на матче НМЛ', caption: 'Вратарь в игре' },
+            { src: 'assets/nml-referee.jpg', alt: 'Судья фиксирует эпизод на матче НМЛ', caption: 'Судейство матча' }
+          ]
+        },
         superheroes: {
           title: 'Кубок Супергероев РПЛ/ФНЛ',
           photos: [
-            { src: 'assets/case-tunnel.jpg', alt: 'Выход команд на поле под дым-машину', caption: 'Выход команд на поле · Лоо-Арена, Сочи' },
-            { src: 'assets/case-var.jpg', alt: 'Система VAR на турнире', caption: 'VAR-зона турнира' }
+            { src: 'assets/superheroes-trophy.jpg', alt: 'Победный баннер Кубка Супергероев РПЛ/ФНЛ', caption: 'Победитель турнира' },
+            { src: 'assets/superheroes-team.jpg', alt: 'Команда с медалями на Кубке Супергероев', caption: 'Награждение команды' },
+            { src: 'assets/superheroes-zenit.jpg', alt: 'Команда Зенит с кубком', caption: 'Церемония награждения' },
+            { src: 'assets/superheroes-arch.jpg', alt: 'Григорий Митин на арке турнира', caption: 'На площадке турнира' },
+            { src: 'assets/superheroes-var.jpg', alt: 'VAR-будка на Кубке Супергероев', caption: 'VAR-зона турнира' }
           ]
         },
-        'football-day': {
-          title: 'Всероссийский день футбола',
+        'battle-schools': {
+          title: 'Битва Школ',
           photos: [
-            { src: 'assets/case-award.jpg', alt: 'Награждение юного футболиста', caption: 'Награждение · ОК «Лужники»' },
-            { src: 'assets/case-night.jpg', alt: 'Матч под вечерним освещением', caption: 'Матч на площадке события' }
-          ]
-        },
-        'match-premier': {
-          title: 'Кубок Матч Премьер',
-          photos: [
-            { src: 'assets/case-training.jpg', alt: 'Судейство детского турнира в Крымске', caption: 'Судейство · Крымск' }
-          ]
-        },
-        'beach-champ': {
-          title: 'Чемпионат России · пляжный футбол, I этап',
-          photos: [
-            { src: 'assets/case-beach.jpg', alt: 'Судейская бригада на матче пляжного футбола', caption: 'Судейская бригада · «Нова Арена»' }
+            { src: 'assets/case-award.jpg', alt: 'Награждение на турнире «Битва школ»', caption: 'Награждение · Московский спорт' }
           ]
         }
       };
