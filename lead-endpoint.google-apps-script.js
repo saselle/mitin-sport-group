@@ -1,14 +1,14 @@
 const EMAIL_TO = 'grigmitin@yandex.ru';
-const EMAIL_SUBJECT = 'Заявка с сайта Mitin Sport Group';
 
 function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents || '{}');
-    const text = formatLead_(data);
+    const kind = data['Тип'] || 'Заявка с сайта Mitin Sport Group';
+    const text = formatLead_(data, kind);
 
     MailApp.sendEmail({
       to: EMAIL_TO,
-      subject: EMAIL_SUBJECT,
+      subject: kind,
       body: text
     });
 
@@ -37,7 +37,7 @@ function sendTelegram_(text) {
   });
 }
 
-function formatLead_(data) {
+function formatLead_(data, kind) {
   const order = [
     'Имя',
     'Контакт',
@@ -55,10 +55,15 @@ function formatLead_(data) {
     'Время заявки'
   ];
 
-  const lines = ['Новая заявка с сайта Mitin Sport Group', ''];
+  const lines = [kind, ''];
+  const seen = new Set(['Тип']);
 
   order.forEach((key) => {
-    if (data[key]) lines.push(`${key}: ${data[key]}`);
+    if (data[key]) { lines.push(`${key}: ${data[key]}`); seen.add(key); }
+  });
+
+  Object.keys(data).forEach((key) => {
+    if (!seen.has(key) && data[key]) lines.push(`${key}: ${data[key]}`);
   });
 
   return lines.join('\n');
