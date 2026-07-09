@@ -171,6 +171,11 @@
     .btn { font-weight: 600; }
     .section-head p { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.48; font-weight: 500; }
 
+    /* CONSTRUCTOR PROMO VIDEO */
+    .promo-video-wrap { background: #0d0d0f; box-shadow: var(--shadow-soft); }
+    .promo-video { display: block; width: 100%; height: auto; }
+    .promo-video-cta { margin-top: 28px; text-align: center; }
+
     /* SERVICES */
     .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(208px, 1fr)); gap: 16px; }
     .service-card {
@@ -624,6 +629,25 @@
             <h3>Организация и проведение сборов</h3>
             <p>Подбор базы, логистика и проживание, план тренировок и товарищеских игр, сопровождение команды на выезде под ключ.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONSTRUCTOR PROMO -->
+    <section id="constructor">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Инструмент</div>
+            <h2>Конструктор турниров <span class="accent-slash">в действии</span></h2>
+          </div>
+          <p>Онлайн-инструмент для организаторов: задайте параметры — получите расписание, ведите счёт, сетка плей-офф и итоговый протокол собираются сами. Excel в один клик.</p>
+        </div>
+        <div class="promo-video-wrap">
+          <video class="promo-video" src="assets/constructor-promo.mp4" poster="assets/constructor-promo-poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video>
+        </div>
+        <div class="promo-video-cta">
+          <a class="btn btn-red" href="https://mitinsport.ru/constructor/" target="_blank" rel="noopener">Открыть Конструктор Турниров PRO</a>
         </div>
       </div>
     </section>
