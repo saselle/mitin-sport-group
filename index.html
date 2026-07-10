@@ -57,6 +57,13 @@
     .emblem.sm { width: 26px; height: 28px; }
     .emblem.sm .m { font-size: 10px; }
 
+    /* hero background photo, clipped to the right of the red diagonal */
+    .hero-photo-bg {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background: url("assets/hero-football.jpg") 350px 30% / cover no-repeat;
+      clip-path: polygon(calc(91% - 50px) 0, 100% 0, 100% 100%, calc(91% - 366px) 100%);
+    }
+
     /* signature diagonal streaks */
     .streaks { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; }
     .streaks i { position: absolute; top: -90px; height: 150%; display: block; transform: rotate(26deg); transform-origin: top center; }
@@ -492,6 +499,7 @@
       .hero { padding-top: 184px; }
     }
     @media (max-width: 920px) {
+      .hero-photo-bg { display: none; }
       .hero-inner, .section-head, .sports, .founder-inner, .contact-inner { grid-template-columns: 1fr; }
       .sport.football { grid-column: auto; }
       .founder-photo { min-height: 380px; }
@@ -554,6 +562,7 @@
   <main id="top">
     <!-- HERO -->
     <section class="hero">
+      <div class="hero-photo-bg" aria-hidden="true"></div>
       <div class="streaks" aria-hidden="true"><i class="s3"></i><i class="s4"></i><i class="s1"></i><i class="s2"></i></div>
       <div class="hero-inner">
         <div>
