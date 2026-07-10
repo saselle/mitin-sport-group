@@ -839,19 +839,17 @@
             <span>Фото уточняются</span>
           </div>
 
-          <div class="case-placeholder">
-            <img class="case-emblem" src="assets/emblem-yfl.png" alt="Эмблема Юношеской футбольной лиги" loading="lazy" />
-            <small>Эмблема турнира</small>
-            <b>Юношеская футбольная лига</b>
-            <span>Фото уточняются</span>
-          </div>
+          <figure class="case" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="yfl">
+            <span class="gallery-hint">📷 1 фото</span>
+            <img src="assets/yfl-1.jpg" alt="Судейская бригада матча ЮФЛ девушки Ю-14 в Самаре" loading="lazy" />
+            <figcaption class="label"><small>ЮФЛ · Самара</small><b>Юношеская футбольная лига</b><span>Девушки Ю-14 · инспектирование</span></figcaption>
+          </figure>
 
-          <div class="case-placeholder">
-            <img class="case-emblem" src="assets/emblem-leather-ball.png" alt="Эмблема турнира «Кожаный мяч»" loading="lazy" />
-            <small>Эмблема турнира</small>
-            <b>Финал «Кожаный мяч»</b>
-            <span>Фото уточняются</span>
-          </div>
+          <figure class="case" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="leather-ball">
+            <span class="gallery-hint">📷 2 фото</span>
+            <img src="assets/leather-1.jpg" alt="Церемония финала турнира «Кожаный мяч»" loading="lazy" />
+            <figcaption class="label"><small>РФС · Минспорт</small><b>Финал «Кожаный мяч»</b><span>Судейский корпус финала</span></figcaption>
+          </figure>
 
           <figure class="case" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="football-day">
             <span class="gallery-hint">📷 1 фото</span>
@@ -866,7 +864,7 @@
           </figure>
 
           <figure class="case" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="podmoskovie">
-            <span class="gallery-hint">📷 6 фото</span>
+            <span class="gallery-hint">📷 7 фото</span>
             <img src="assets/podmoskovie-1.jpg" alt="Судейство на Открытом кубке Подмосковья по пляжному футболу" loading="lazy" />
             <figcaption class="label"><small>Пляжный футбол</small><b>Открытый Кубок Подмосковья</b><span>Судейство и матчи турнира</span></figcaption>
           </figure>
@@ -899,6 +897,12 @@
             <span class="gallery-hint">📷 5 фото</span>
             <img src="assets/sarsania-1.jpg" alt="Судейская бригада Мемориала К. С. Сарсания" loading="lazy" />
             <figcaption class="label"><small>Манеж Локомотив</small><b>Мемориал К. С. Сарсания</b><span>Международный турнир</span></figcaption>
+          </figure>
+
+          <figure class="case" tabindex="0" role="button" aria-haspopup="dialog" data-gallery="akinfeev">
+            <span class="gallery-hint">📷 1 фото</span>
+            <img src="assets/akinfeev-1.jpg" alt="Судейская бригада на церемонии Кубка Игоря Акинфеева" loading="lazy" />
+            <figcaption class="label"><small>Мособлспорт</small><b>Кубок Игоря Акинфеева</b><span>Судейская бригада · 2025</span></figcaption>
           </figure>
         </div>
         <p class="cases-note">* Часть турниров пока без фото — материалы уточняются и появятся по мере поступления.</p>
@@ -1275,7 +1279,27 @@
             { src: 'assets/podmoskovie-3.jpg', alt: 'Борьба за мяч на матче Кубка Подмосковья', caption: 'Борьба за мяч' },
             { src: 'assets/podmoskovie-4.jpg', alt: 'Молодёжная команда перед матчем', caption: 'Молодёжная команда перед игрой' },
             { src: 'assets/podmoskovie-5.jpg', alt: 'Командный круг перед выходом на поле', caption: 'Командный настрой' },
-            { src: 'assets/podmoskovie-6.jpg', alt: 'Судейская бригада турнира', caption: 'Судейская бригада' }
+            { src: 'assets/podmoskovie-6.jpg', alt: 'Судейская бригада турнира', caption: 'Судейская бригада' },
+            { src: 'assets/podmoskovie-7.jpg', alt: 'Вручение кубка за первое место победителям', caption: 'Награждение победителей · сезон 2025/26' }
+          ]
+        },
+        yfl: {
+          title: 'ЮФЛ — Юношеская футбольная лига · девушки Ю-14, Самара',
+          photos: [
+            { src: 'assets/yfl-1.jpg', alt: 'Женская судейская бригада матча ЮФЛ на стадионе в Самаре', caption: 'Судейская бригада · Самара' }
+          ]
+        },
+        'leather-ball': {
+          title: 'Финал «Кожаный мяч»',
+          photos: [
+            { src: 'assets/leather-1.jpg', alt: 'Церемония награждения судей финала «Кожаный мяч»', caption: 'Церемония финала' },
+            { src: 'assets/leather-2.jpg', alt: 'Судейский корпус финала «Кожаный мяч»', caption: 'Судейский корпус турнира' }
+          ]
+        },
+        akinfeev: {
+          title: 'Кубок Игоря Акинфеева',
+          photos: [
+            { src: 'assets/akinfeev-1.jpg', alt: 'Судейская бригада на сцене Кубка Игоря Акинфеева', caption: 'Церемония турнира · Мособлспорт · 2025' }
           ]
         }
       };
