@@ -378,22 +378,43 @@
     .aud p { margin: 0; color: var(--muted); line-height: 1.46; font-weight: 500; font-size: 15px; }
 
     /* PORTFOLIO */
-    .cases { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 240px; gap: 14px; }
-    .case { position: relative; overflow: hidden; border: 1px solid var(--line); background: #eee; }
-    .case img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-    .case:hover img { transform: scale(1.06); }
-    .case::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 38%, rgba(8,8,8,.85)); }
-    .case .label { position: absolute; z-index: 2; left: 18px; right: 18px; bottom: 16px; color: #fff; }
+    .cases { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 240px; gap: 14px; grid-auto-flow: dense; }
+    /* bento rhythm: every 3rd tile is wide (2 cols) → WSS WSS pattern stays gap-free */
+    .cases .case:nth-child(3n+1) { grid-column: span 2; }
+    .case {
+      position: relative; overflow: hidden; border: 1px solid var(--line); background: #eee; cursor: pointer;
+      transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s ease;
+    }
+    .case:hover { transform: translateY(-5px); box-shadow: 0 20px 44px rgba(8,8,8,.32); z-index: 3; }
+    .case img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.7,.2,1), filter .5s ease; filter: saturate(.9); }
+    .case:hover img { transform: scale(1.09); filter: saturate(1.06); }
+    .case::after { content: ""; position: absolute; inset: 0; transition: background .45s ease; background: linear-gradient(180deg, transparent 38%, rgba(8,8,8,.85)); }
+    .case:hover::after { background: linear-gradient(180deg, transparent 24%, rgba(8,8,8,.92)); }
+    .case .label { position: absolute; z-index: 2; left: 18px; right: 18px; bottom: 16px; color: #fff; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+    .case:hover .label { transform: translateY(-4px); }
     .case .label small { display: block; color: #ff4d57; font-size: 11px; font-weight: 950; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 5px; }
-    .case .label b { display: block; font-size: 18px; line-height: 1.05; letter-spacing: -.03em; text-transform: uppercase; }
+    .case .label b { position: relative; display: inline-block; padding-bottom: 6px; font-size: 18px; line-height: 1.05; letter-spacing: -.03em; text-transform: uppercase; }
+    .case .label b::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--red); transition: width .5s cubic-bezier(.2,.7,.2,1); }
+    .case:hover .label b::after { width: 46px; }
     .case .label span { display: block; margin-top: 5px; font-size: 12px; color: rgba(255,255,255,.8); font-weight: 600; }
-    .case { cursor: pointer; }
     .case:focus-visible { outline: 3px solid var(--red); outline-offset: -3px; }
     .case .gallery-hint {
       position: absolute; z-index: 2; top: 14px; right: 14px;
       display: flex; align-items: center; gap: 6px; padding: 6px 10px;
       background: rgba(12,12,12,.55); color: #fff; backdrop-filter: blur(4px);
       font-family: var(--font-ui); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+      transition: background .35s ease, transform .35s ease;
+    }
+    .case:hover .gallery-hint { background: var(--red); transform: translateY(-2px); }
+    /* scroll reveal (class added by JS, so no-JS users always see the tiles) */
+    .cases.reveal .case { opacity: 0; transform: translateY(30px); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1), box-shadow .45s ease; }
+    .cases.reveal .case.in { opacity: 1; transform: none; }
+    .cases.reveal .case:nth-child(4n+2) { transition-delay: .07s; }
+    .cases.reveal .case:nth-child(4n+3) { transition-delay: .14s; }
+    .cases.reveal .case:nth-child(4n+4) { transition-delay: .21s; }
+    @media (prefers-reduced-motion: reduce) {
+      .cases.reveal .case { opacity: 1; transform: none; transition: none; }
+      .case, .case img, .case .label { transition: none; }
     }
     .cases-note { margin-top: 22px; color: var(--muted); font-size: 14px; font-weight: 500; }
     .case-placeholder {
@@ -528,6 +549,7 @@
       .hero-actions { flex-direction: column; }
       .hero-actions .btn { width: 100%; }
       .services, .tech-grid, .media-grid, .audience, .process-grid, .cases { grid-template-columns: 1fr; }
+      .cases .case:nth-child(3n+1) { grid-column: auto; }
       .tech-hero { min-height: 320px; padding: 26px; }
       .media-main { min-height: 320px; padding: 26px; }
       .founder-tags { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1121,6 +1143,26 @@
     <a class="fa-call" href="tel:+79035212007">Позвонить</a>
     <a class="fa-write" href="#contact">Оставить заявку</a>
   </div>
+  <script>
+    /* Portfolio: staggered reveal on scroll (class added here so no-JS keeps tiles visible) */
+    (() => {
+      const cases = document.querySelector('.cases');
+      if (!cases) return;
+      const items = cases.querySelectorAll('.case');
+      cases.classList.add('reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach((c) => c.classList.add('in'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+      items.forEach((c) => io.observe(c));
+    })();
+  </script>
+
   <script>
     (() => {
       const form = document.querySelector('.lead-form');
