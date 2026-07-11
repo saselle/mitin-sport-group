@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=110599203", "ym");
+    ym(110599203, "init", { ssr:true, clickmap:true, trackLinks:true, accurateTrackBounce:true, ecommerce:"dataLayer" });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/110599203" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
   <title>Mitin Sport Group — Спортивные турниры и мероприятия под ключ</title>
   <meta name="description" content="Mitin Sport Group (MSG) — организация и проведение футбольных и спортивных турниров под ключ: регламент, судейство, матч Day операции и айдентика события. Основатель — Григорий Митин, действующий футбольный судья." />
   <meta name="robots" content="index, follow" />
@@ -1249,6 +1260,26 @@
       // safety net: never leave tiles permanently hidden if the observer misses
       const revealAll = () => items.forEach((c) => c.classList.add('in'));
       window.addEventListener('load', () => setTimeout(revealAll, 2600), { once: true });
+    })();
+  </script>
+
+  <script>
+    /* Yandex.Metrika goals — fire reachGoal on key conversion actions */
+    (() => {
+      const YM_ID = 110599203;
+      const goal = (name) => { try { if (typeof ym === 'function') ym(YM_ID, 'reachGoal', name); } catch (e) {} };
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if (!a) return;
+        const href = (a.getAttribute('href') || '').toLowerCase();
+        if (href.startsWith('tel:')) goal('call');
+        else if (href.indexOf('t.me') !== -1) goal('telegram');
+        else if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp') !== -1) goal('whatsapp');
+        else if (href.startsWith('mailto:')) goal('email');
+        else if (href.indexOf('higgsfield.app') !== -1 || href.indexOf('/constructor') !== -1) goal('constructor');
+      });
+      const lead = document.querySelector('.lead-form');
+      if (lead) lead.addEventListener('submit', () => goal('lead_form'));
     })();
   </script>
 
