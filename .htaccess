@@ -1,7 +1,12 @@
 # Mitin Sport Group — canonical host + HTTPS redirects (SEO)
+# Note: nichost serves Apache behind an nginx proxy, so %{HTTPS} is unreliable.
+# Detect the real scheme via X-Forwarded-Proto to avoid an https->https loop.
 RewriteEngine On
 
-# Force HTTPS and non-www → https://mitinsport.ru/ (single 301)
-RewriteCond %{HTTPS} off [OR]
+# www -> non-www (Host header is reliable)
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^ https://mitinsport.ru%{REQUEST_URI} [L,R=301]
+
+# http -> https (only when the proxy reports plain http)
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
 RewriteRule ^ https://mitinsport.ru%{REQUEST_URI} [L,R=301]
