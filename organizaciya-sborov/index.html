@@ -14,6 +14,15 @@
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/110599203" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9M8MVH5YV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R9M8MVH5YV');
+  </script>
+  <!-- End Google tag -->
   <title>Организация спортивных сборов под ключ — Mitin Sport Group</title>
   <meta name="description" content="Организация футбольных и спортивных сборов под ключ: база и поля, проживание и питание, план тренировок, товарищеские матчи, судейство и логистика. Москва, область и вся Россия." />
   <meta name="robots" content="index, follow" />
@@ -159,7 +168,7 @@
   <script>
     (function () {
       var ID = 110599203;
-      var goal = function (name) { try { if (typeof ym === 'function') ym(ID, 'reachGoal', name); } catch (e) {} };
+      var goal = function (name) { try { if (typeof ym === 'function') ym(ID, 'reachGoal', name); } catch (e) {} try { if (typeof gtag === 'function') gtag('event', name); } catch (e) {} };
       document.addEventListener('click', function (e) {
         var a = e.target.closest && e.target.closest('a'); if (!a) return;
         var href = (a.getAttribute('href') || '').toLowerCase();

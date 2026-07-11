@@ -14,6 +14,15 @@
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/110599203" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9M8MVH5YV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R9M8MVH5YV');
+  </script>
+  <!-- End Google tag -->
   <title>Mitin Sport Group — Спортивные турниры и мероприятия под ключ</title>
   <meta name="description" content="Mitin Sport Group (MSG) — организация и проведение футбольных и спортивных турниров под ключ: регламент, судейство, матч Day операции и айдентика события. Основатель — Григорий Митин, действующий футбольный судья." />
   <meta name="robots" content="index, follow" />
@@ -1267,7 +1276,7 @@
     /* Yandex.Metrika goals — fire reachGoal on key conversion actions */
     (() => {
       const YM_ID = 110599203;
-      const goal = (name) => { try { if (typeof ym === 'function') ym(YM_ID, 'reachGoal', name); } catch (e) {} };
+      const goal = (name) => { try { if (typeof ym === 'function') ym(YM_ID, 'reachGoal', name); } catch (e) {} try { if (typeof gtag === 'function') gtag('event', name); } catch (e) {} };
       document.addEventListener('click', (e) => {
         const a = e.target.closest('a');
         if (!a) return;
