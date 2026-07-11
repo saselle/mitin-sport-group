@@ -1,0 +1,7 @@
+# Mitin Sport Group — canonical host + HTTPS redirects (SEO)
+RewriteEngine On
+
+# Force HTTPS and non-www → https://mitinsport.ru/ (single 301)
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^ https://mitinsport.ru%{REQUEST_URI} [L,R=301]

@@ -5,9 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mitin Sport Group — Спортивные турниры и мероприятия под ключ</title>
   <meta name="description" content="Mitin Sport Group (MSG) — организация и проведение футбольных и спортивных турниров под ключ: регламент, судейство, матч Day операции и айдентика события. Основатель — Григорий Митин, действующий футбольный судья." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mitinsport.ru/" />
   <meta property="og:title" content="Mitin Sport Group — Спорт под контролем" />
   <meta property="og:description" content="Турниры и спортивные мероприятия под ключ: от регламента до финального свистка." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mitinsport.ru/" />
+  <meta property="og:site_name" content="Mitin Sport Group" />
+  <meta property="og:image" content="https://mitinsport.ru/assets/superheroes-winners.jpg" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#e30613" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://mitinsport.ru/#org",
+        "name": "Mitin Sport Group",
+        "alternateName": "Митин Спорт Групп",
+        "url": "https://mitinsport.ru/",
+        "logo": "https://mitinsport.ru/assets/logo-msg.png",
+        "image": "https://mitinsport.ru/assets/superheroes-winners.jpg",
+        "email": "grigmitin@yandex.ru",
+        "telephone": "+7-903-521-20-07",
+        "description": "Организация и проведение футбольных и спортивных турниров под ключ: регламент, судейство, VAR, медиа и Match Day.",
+        "areaServed": { "@type": "Country", "name": "Россия" },
+        "founder": { "@id": "https://mitinsport.ru/#grigmitin" },
+        "sameAs": ["https://t.me/mitinref"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+7-903-521-20-07",
+          "contactType": "sales",
+          "availableLanguage": "Russian"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://mitinsport.ru/#website",
+        "url": "https://mitinsport.ru/",
+        "name": "Mitin Sport Group",
+        "inLanguage": "ru",
+        "publisher": { "@id": "https://mitinsport.ru/#org" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://mitinsport.ru/#grigmitin",
+        "name": "Григорий Митин",
+        "jobTitle": "Основатель Mitin Sport Group, действующий футбольный арбитр всероссийской категории",
+        "worksFor": { "@id": "https://mitinsport.ru/#org" }
+      },
+      {
+        "@type": "Service",
+        "name": "Организация футбольных турниров под ключ",
+        "serviceType": "Организация спортивных турниров",
+        "provider": { "@id": "https://mitinsport.ru/#org" },
+        "areaServed": { "@type": "Country", "name": "Россия" }
+      },
+      {
+        "@type": "Service",
+        "name": "Судейское сопровождение матчей и турниров",
+        "provider": { "@id": "https://mitinsport.ru/#org" },
+        "areaServed": { "@type": "Country", "name": "Россия" }
+      },
+      {
+        "@type": "Service",
+        "name": "VAR сопровождение матчей",
+        "provider": { "@id": "https://mitinsport.ru/#org" },
+        "areaServed": { "@type": "Country", "name": "Россия" }
+      },
+      {
+        "@type": "Service",
+        "name": "Медиа и онлайн-трансляции спортивных событий",
+        "provider": { "@id": "https://mitinsport.ru/#org" },
+        "areaServed": { "@type": "Country", "name": "Россия" }
+      },
+      {
+        "@type": "Service",
+        "name": "Корпоративные и детские спортивные турниры",
+        "provider": { "@id": "https://mitinsport.ru/#org" },
+        "areaServed": { "@type": "Country", "name": "Россия" }
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -1160,6 +1246,9 @@
         });
       }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
       items.forEach((c) => io.observe(c));
+      // safety net: never leave tiles permanently hidden if the observer misses
+      const revealAll = () => items.forEach((c) => c.classList.add('in'));
+      window.addEventListener('load', () => setTimeout(revealAll, 2600), { once: true });
     })();
   </script>
 
