@@ -1,4 +1,4 @@
-const EMAIL_TO = 'grigmitin@yandex.ru';
+const EMAIL_TO = 'info@mitinsport.ru';
 
 function doPost(e) {
   try {
