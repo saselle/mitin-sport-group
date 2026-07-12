@@ -2,7 +2,7 @@ window.MAX_WIDGET_CONFIG = {
   "type": "widget",
   "display": {
     "desktop": true,
-    "mobile": true
+    "mobile": false
   },
   "theme": "dark",
   "animation": {
