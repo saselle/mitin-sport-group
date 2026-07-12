@@ -1147,10 +1147,10 @@
                 <span class="sr-only">WhatsApp</span>
               </a>
             </div>
-            <div class="cm"><span>@</span><a href="mailto:info@mitinsport.ru">info@mitinsport.ru</a></div>
+            <div class="cm"><span>@</span><a href="mailto:info@mitinsport.ru?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20Mitinsport.ru">info@mitinsport.ru</a></div>
           </div>
         </div>
-        <form class="lead-form" action="mailto:info@mitinsport.ru" method="post" enctype="text/plain" data-endpoint="" aria-label="Форма заявки">
+        <form class="lead-form" action="mailto:info@mitinsport.ru?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20Mitinsport.ru" method="post" enctype="text/plain" data-endpoint="" aria-label="Форма заявки">
           <div class="frow">
             <label for="name">Имя *</label>
             <input id="name" name="Имя" type="text" placeholder="Как к вам обращаться" required />
@@ -1353,7 +1353,7 @@
         setStatus('warn', 'Отправляем заявку...');
 
         if (!endpoint) {
-          const subject = encodeURIComponent('Заявка с сайта Mitin Sport Group');
+          const subject = encodeURIComponent('Запрос с сайта Mitinsport.ru');
           window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${encodeURIComponent(body)}`;
           setStatus('warn', 'Открылось почтовое приложение. Автоматическая отправка на email и Telegram будет доступна после подключения обработчика формы.');
           submit.disabled = false;
