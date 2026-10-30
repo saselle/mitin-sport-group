@@ -6,18 +6,28 @@ function doPost(e) {
     const kind = data['Тип'] || 'Заявка с сайта Mitin Sport Group';
     const text = formatLead_(data, kind);
 
-    MailApp.sendEmail({
+    const opts = {
       to: EMAIL_TO,
       subject: kind,
       body: text
-    });
+    };
+    // Чтобы можно было ответить прямо заявителю — ставим Reply-To на его email.
+    const replyTo = data['Email'] || '';
+    if (replyTo && /@/.test(replyTo)) opts.replyTo = replyTo;
+
+    MailApp.sendEmail(opts);
 
     sendTelegram_(text);
 
-    return json_({ ok: true });
+    return json_({ ok: true, to: EMAIL_TO });
   } catch (error) {
     return json_({ ok: false, error: String(error) });
   }
+}
+
+// Диагностика: открыв URL в браузере (GET), видно, какой получатель в живом коде.
+function doGet() {
+  return json_({ ok: true, to: EMAIL_TO, ping: 'ok' });
 }
 
 function sendTelegram_(text) {

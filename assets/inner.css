@@ -115,3 +115,11 @@ footer img { height: 24px; }
 .art-card h3 { font-size: 21px; margin: 12px 0 8px; text-transform: none; letter-spacing: -.01em; line-height: 1.15; }
 .art-card p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.5; }
 @media (max-width: 760px){ .art-list { grid-template-columns: 1fr; } }
+
+/* Русский логотип «Митин Спорт Групп»: сдвиг к левому краю контента (1180) + размеры */
+.site-header .brand { margin-left: max(0px, calc((min(100vw, 1440px) - 1180px) / 2)); }
+.site-header .brand img.wm { height: 44px; }
+footer .in a img { height: 32px; }
+
+/* Реквизиты ИП в подвале */
+footer .in .req { flex-basis: 100%; margin-top: 6px; font-size: 12px; color: var(--muted); line-height: 1.5; }
